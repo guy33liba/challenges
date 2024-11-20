@@ -18,7 +18,7 @@ const App = () => {
       {/* <Fibonacci /> */}
       {/* <Capitilize /> */}
       {/* <DYnamicList /> */}
-      <Debounce />
+      {/* <Debounce /> */}
     </div>
   )
 }
