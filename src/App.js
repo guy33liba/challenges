@@ -7,6 +7,7 @@ import Fibonacci from "./challenges/Fibonacci"
 import TodoList from "./challenges/TodoList"
 import Capitilize from "./challenges/Capitilize"
 import DYnamicList from "./challenges/DYnamicList"
+import Debounce from "./challenges/Debounce"
 const App = () => {
   return (
     <div className="app">
@@ -16,7 +17,8 @@ const App = () => {
       {/* {<TodoList />} */}
       {/* <Fibonacci /> */}
       {/* <Capitilize /> */}
-      <DYnamicList />
+      {/* <DYnamicList /> */}
+      <Debounce />
     </div>
   )
 }
