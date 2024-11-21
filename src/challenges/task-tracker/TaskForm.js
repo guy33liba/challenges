@@ -12,7 +12,23 @@ const TaskForm = ({ addTask }) => {
       setCategory("")
     }
   }
-  return <form></form>
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={taskText}
+        onChange={(e) => setTaskText(e.target.value)}
+        placeholder="Enter Task..."
+      />
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="">Select Option</option>
+        <option value="Work"> Work</option>
+        <option value="Personal"> Personal</option>
+        <option value="Fitness">Fitness</option>
+      </select>
+      <button type="submit">Add Task</button>
+    </form>
+  )
 }
 
 export default TaskForm
