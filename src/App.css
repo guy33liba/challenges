@@ -50,3 +50,19 @@ button {
 button:hover {
   background: #ff0000;
 }
+.categoryList {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  right: 140px;
+  width: 1000px;
+  height: 600px;
+  border: 1px solid black;
+  margin-top: 10px;
+  font-size: 30px;
+}
+.categoryList div {
+  border: 1px solid black;
+  width: 300px;
+  text-align: center;
+}

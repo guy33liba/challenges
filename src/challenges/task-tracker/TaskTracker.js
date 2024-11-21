@@ -1,10 +1,10 @@
 import React, { useState } from "react"
+import Categories from "./Categories"
 
-const TaskTracker = () => {
+const TaskTracker = ({ categories }) => {
   const [inputTask, setinputTask] = useState("")
   const [tasks, setTasks] = useState([])
   const [newInputTask, setNewInputTask] = useState("")
-  const [categories, setCategories] = useState("")
   const addTask = (task) => {
     if (inputTask.trim() === "") {
       alert("Please enter a task")
@@ -39,21 +39,15 @@ const TaskTracker = () => {
   }
   return (
     <div>
-      <input type="text" value={inputTask} onChange={onchangeValue} />
-
-      <button style={{ marginLeft: "10px" }} onClick={() => addTask()}>
-        add Task
-      </button>
-      <select
-        style={{ marginLeft: "10px" }}
-        value={categories}
-        onChange={(e) => setCategories(e.target.value)}>
-        <option value="">Select Category</option>
-        <option value="sport">sport</option>
-        <option value="personal">personal</option>
-        <option value="health">health</option>
-        <option value="profession">profession </option>
-      </select>
+      <input type="text" style={{ fontSize: "30px" }} value={inputTask} onChange={onchangeValue} />
+      <div style={{ display: "flex" }}>
+        <button
+          style={{ marginTop: "10px", fontSize: "30px", height: "44px" }}
+          onClick={() => addTask()}>
+          add Task
+        </button>
+        <Categories />
+      </div>
       {tasks.map((task, index) => {
         return (
           <div key={index}>
