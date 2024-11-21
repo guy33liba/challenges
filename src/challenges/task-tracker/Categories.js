@@ -25,10 +25,11 @@ const Categories = ({ inputTask }) => {
               onChange={(e) => setSelectedCategory(e.target.value)}
               style={{ marginLeft: "10px", height: "44px", marginTop: "10px", fontSize: "30px" }}>
               <option value="">Select Category</option>
-              <option value={category.sport}>sport</option>
-              <option value={category.health}>health</option>
-              <option value={category.profession}>profession</option>
-              <option value={category.personal}>personal</option>
+              {Object.keys(categories).map((category) => (
+                <option key={category} value="category">
+                  {category}
+                </option>
+              ))}
             </select>
           </div>
         )
