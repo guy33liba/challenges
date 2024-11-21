@@ -4,12 +4,16 @@ const TaskTracker = () => {
   const [inputTask, setinputTask] = useState("")
   const [tasks, setTasks] = useState([])
   const [newInputTask, setNewInputTask] = useState("")
+  const [categories, setCategories] = useState("")
   const addTask = (task) => {
     if (inputTask.trim() === "") {
       alert("Please enter a task")
       return
     }
-    setTasks([...tasks, { id: tasks.length, task: inputTask, completed: false, isEditing: false }])
+    setTasks([
+      ...tasks,
+      { id: tasks.length, task: inputTask, completed: false, isEditing: false, categories },
+    ])
     setinputTask("")
   }
   const onchangeValue = (e) => {
@@ -40,11 +44,22 @@ const TaskTracker = () => {
       <button style={{ marginLeft: "10px" }} onClick={() => addTask()}>
         add Task
       </button>
+      <select
+        style={{ marginLeft: "10px" }}
+        value={categories}
+        onChange={(e) => setCategories(e.target.value)}>
+        <option value="">Select Category</option>
+        <option value="sport">sport</option>
+        <option value="personal">personal</option>
+        <option value="health">health</option>
+        <option value="profession">profession </option>
+      </select>
       {tasks.map((task, index) => {
         return (
           <div key={index}>
             {!task.isEditable ? (
               <div>
+                <h2>{task.categories}</h2>
                 <input
                   type="checkbox"
                   checked={task.completed}
