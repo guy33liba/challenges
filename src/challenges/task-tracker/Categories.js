@@ -37,11 +37,8 @@ const Categories = ({ inputTask }) => {
       <div>
         {categories.map((category) => {
           return (
-            <div className="categoryList" key={category.sport} style={{}}>
-              <div value={category.sport}>sport</div>
-              <div value={category.health}>health</div>
-              <div value={category.profession}>profession</div>
-              <div value={category.personal}>personal</div>
+            <div className="categoryList" key={category.sport} style={{ marginTop: "20px" }}>
+              <div key={category} style={{ marginBottom: "20px" }}></div>
             </div>
           )
         })}
