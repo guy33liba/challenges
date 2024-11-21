@@ -1,7 +1,10 @@
+body {
+  overflow: hidden;
+}
 .app {
   display: flex;
-  margin-top: 5%;
-  margin-left: 10%;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 .task-tracker {
