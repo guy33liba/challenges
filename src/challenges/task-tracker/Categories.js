@@ -1,47 +1,69 @@
 import React, { useState } from "react"
-const Categories = ({ inputTask }) => {
-  const [categories, setCategories] = useState([
-    {
-      sport: [],
-      health: [],
-      profession: [],
-      personal: [],
-    },
-  ])
+import TaskForm from "./TaskForm"
+const Categories = ({ inputTask, tasks }) => {
+  const [categories, setCategories] = useState({
+    sport: [],
+    health: [],
+    profession: [],
+    personal: [],
+  })
   const [selectedCategory, setSelectedCategory] = useState("")
-  const categorySelection = () => {
-    if (categories === categories.sport) {
-      setCategories([...categories, { categories: inputTask }])
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value)
+  }
+
+  const addTaskToCategory = () => {
+    if (selectedCategory && inputTask) {
+      setCategories((prevCategories) => ({
+        ...prevCategories,
+        [selectedCategory]: [...prevCategories[selectedCategory], inputTask],
+      }))
     }
   }
 
   return (
     <div>
-      {categories.map((category) => {
-        return (
-          <div key={category.sport}>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              style={{ marginLeft: "10px", height: "44px", marginTop: "10px", fontSize: "30px" }}>
-              <option value="">Select Category</option>
-              {Object.keys(categories).map((category) => (
-                <option key={category} value="category">
-                  {category}
-                </option>
+      {/* Dropdown for category selection */}
+      <select
+        style={{
+          marginLeft: "10px",
+          height: "44px",
+          marginTop: "10px",
+          fontSize: "20px",
+        }}
+        value={selectedCategory}
+        onChange={handleCategoryChange}>
+        <option value="">Select Category</option>
+        {Object.keys(categories).map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+
+      <button
+        onClick={addTaskToCategory}
+        style={{
+          marginLeft: "10px",
+          padding: "10px 20px",
+          fontSize: "18px",
+        }}>
+        Add Task
+      </button>
+
+      {/* Display Tasks by Category */}
+      <div className="categoryList" style={{ marginTop: "20px" }}>
+        {Object.keys(categories).map((category) => (
+          <div key={category}>
+            <h3>{category}</h3>
+            <ul>
+              {categories[category].map((task, index) => (
+                <li key={index}>{<TaskForm />}</li>
               ))}
-            </select>
+            </ul>
           </div>
-        )
-      })}
-      <div>
-        {categories.map((category) => {
-          return (
-            <div className="categoryList" key={category.sport} style={{ marginTop: "20px" }}>
-              <div key={category} style={{ marginBottom: "20px" }}></div>
-            </div>
-          )
-        })}
+        ))}
       </div>
     </div>
   )
