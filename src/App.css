@@ -4,3 +4,49 @@
   margin-left: 10%;
   height: 100vh;
 }
+.task-tracker {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.task-form input,
+.task-form select,
+.task-form button {
+  margin: 5px;
+  padding: 8px;
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task-category {
+  margin-bottom: 20px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+button {
+  background: #ff5f5f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff0000;
+}

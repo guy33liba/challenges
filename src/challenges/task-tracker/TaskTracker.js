@@ -1,19 +1,16 @@
-import { isEditable } from "@testing-library/user-event/dist/utils"
 import React, { useState } from "react"
-import TaskForm from "./TaskForm"
 
 const TaskTracker = () => {
   const [inputTask, setinputTask] = useState("")
   const [tasks, setTasks] = useState([])
   const [newInputTask, setNewInputTask] = useState("")
   const addTask = (task) => {
-    // if (inputTask.trim() === "") {
-    //   alert("Please enter a task")
-    //   return
-    // }
-    // setTasks([...tasks, { id: tasks.length, task: inputTask, completed: false, isEditing: false }])
-    // setinputTask("")
-    setTasks([...tasks, task])
+    if (inputTask.trim() === "") {
+      alert("Please enter a task")
+      return
+    }
+    setTasks([...tasks, { id: tasks.length, task: inputTask, completed: false, isEditing: false }])
+    setinputTask("")
   }
   const onchangeValue = (e) => {
     setinputTask(e.target.value)
@@ -38,8 +35,7 @@ const TaskTracker = () => {
   }
   return (
     <div>
-      <TaskForm addTask={addTask} />
-      {/* <input type="text" value={inputTask} onChange={onchangeValue} />
+      <input type="text" value={inputTask} onChange={onchangeValue} />
 
       <button style={{ marginLeft: "10px" }} onClick={() => addTask()}>
         add Task
@@ -79,7 +75,7 @@ const TaskTracker = () => {
             )}
           </div>
         )
-      })} */}
+      })}
     </div>
   )
 }
