@@ -7,9 +7,12 @@ const TaskForm = ({ addTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (taskText && category) {
+      addTask({ id: Date.now(), text: taskText, category, completed: false })
+      setTaskText("")
+      setCategory("")
     }
   }
-  return <div></div>
+  return <form></form>
 }
 
 export default TaskForm
