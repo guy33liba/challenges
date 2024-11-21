@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import TaskForm from "./TaskForm"
-const Categories = ({ inputTask, tasks }) => {
+
+const Categories = ({ inputTask, addTask }) => {
   const [categories, setCategories] = useState({
     sport: [],
     health: [],
@@ -43,7 +43,10 @@ const Categories = ({ inputTask, tasks }) => {
       </select>
 
       <button
-        onClick={addTaskToCategory}
+        onClick={() => {
+          addTaskToCategory()
+          addTask()
+        }}
         style={{
           marginLeft: "10px",
           padding: "10px 20px",
@@ -59,7 +62,7 @@ const Categories = ({ inputTask, tasks }) => {
             <h3>{category}</h3>
             <ul>
               {categories[category].map((task, index) => (
-                <li key={index}>{<TaskForm />}</li>
+                <li key={index}>{task}</li>
               ))}
             </ul>
           </div>

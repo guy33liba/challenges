@@ -1,7 +1,7 @@
 import React from "react"
 
 const TaskForm = ({
-  tasks,
+  ...tasks,
   completeTask,
   deleteTask,
   edittasktoggle,

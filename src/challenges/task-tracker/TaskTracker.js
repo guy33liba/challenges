@@ -41,14 +41,45 @@ const TaskTracker = ({ categories }) => {
     <div>
       <input type="text" style={{ fontSize: "30px" }} value={inputTask} onChange={onchangeValue} />
       <div style={{ display: "flex" }}>
-        <button
-          style={{ marginTop: "10px", fontSize: "30px", height: "44px" }}
-          onClick={() => addTask()}>
-          add Task
-        </button>
-        <Categories inputTask={inputTask} tasks={tasks} />
+        <Categories inputTask={inputTask} addTask={addTask} />
       </div>
-      
+      {tasks.map((task, index) => {
+        return (
+          <div key={index}>
+            {!task.isEditable ? (
+              <div>
+                <h2>{task.categories}</h2>
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  onChange={() => completeTask(task.id)}
+                />
+                {task.task}
+                <button style={{ marginLeft: "10px" }} onClick={() => deleteTask(task.id)}>
+                  delete
+                </button>
+                <button style={{ marginLeft: "10px" }} onClick={() => edittasktoggle(task.id)}>
+                  edit
+                </button>
+              </div>
+            ) : (
+              <div>
+                <input
+                  style={{ marginTop: "10px" }}
+                  type="text"
+                  value={newInputTask}
+                  onChange={(e) => setNewInputTask(e.target.value)}
+                />
+                <button
+                  style={{ marginLeft: "10px" }}
+                  onClick={() => editTask(task.id, newInputTask)}>
+                  updateTask
+                </button>
+              </div>
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }
