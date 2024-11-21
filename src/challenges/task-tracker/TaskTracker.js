@@ -46,7 +46,7 @@ const TaskTracker = ({ categories }) => {
           onClick={() => addTask()}>
           add Task
         </button>
-        <Categories />
+        <Categories inputTask={inputTask} />
       </div>
       {tasks.map((task, index) => {
         return (
