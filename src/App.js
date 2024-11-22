@@ -10,6 +10,7 @@ import DYnamicList from "./challenges/DYnamicList"
 import Debounce from "./challenges/Debounce"
 import TaskTracker from "./challenges/task-tracker/TaskTracker"
 import MissingNumber from "./challenges/MissingNumber"
+import FindtheSingleNumber from "./challenges/FindtheSingleNumber"
 const App = () => {
   return (
     <div className="app">
@@ -22,7 +23,8 @@ const App = () => {
       {/* <DYnamicList /> */}
       {/* <Debounce /> */}
       {/* <TaskTracker /> */}
-      <MissingNumber />
+      {/* <MissingNumber/> */}
+      <FindtheSingleNumber />
     </div>
   )
 }
