@@ -9,6 +9,7 @@ import Capitilize from "./challenges/Capitilize"
 import DYnamicList from "./challenges/DYnamicList"
 import Debounce from "./challenges/Debounce"
 import TaskTracker from "./challenges/task-tracker/TaskTracker"
+import MissingNumber from "./challenges/MissingNumber"
 const App = () => {
   return (
     <div className="app">
@@ -20,7 +21,8 @@ const App = () => {
       {/* <Capitilize /> */}
       {/* <DYnamicList /> */}
       {/* <Debounce /> */}
-      <TaskTracker />
+      {/* <TaskTracker /> */}
+      <MissingNumber />
     </div>
   )
 }
