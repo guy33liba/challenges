@@ -1,71 +1,72 @@
 body {
-  overflow: hidden;
+ overflow: hidden;
 }
 .app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
 }
 .task-tracker {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
+ font-family: Arial, sans-serif;
+ max-width: 600px;
+ margin: auto;
+ padding: 20px;
+ text-align: center;
 }
 
 .task-form input,
 .task-form select,
 .task-form button {
-  margin: 5px;
-  padding: 8px;
+ margin: 5px;
+ padding: 8px;
 }
 
 .task-list {
-  margin-top: 20px;
+ margin-top: 20px;
 }
 
 .task-category {
-  margin-bottom: 20px;
+ margin-bottom: 20px;
 }
 
 .task-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin: 5px 0;
 }
 
 .task-item.completed span {
-  text-decoration: line-through;
-  color: gray;
+ text-decoration: line-through;
+ color: gray;
 }
 
 button {
-  background: #ff5f5f;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+ background: #ff5f5f;
+ color: white;
+ border: none;
+ padding: 5px 10px;
+ cursor: pointer;
 }
 
 button:hover {
-  background: #ff0000;
+ background: #ff0000;
 }
 .categoryList {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  right: 140px;
-  width: 1000px;
-  height: 600px;
-  border: 1px solid black;
-  margin-top: 10px;
-  font-size: 30px;
+ display: flex;
+ justify-content: space-around;
+ position: relative;
+ right: 140px;
+ width: 1200px;
+ height: 600px;
+ margin-top: 10px;
+ font-size: 30px;
 }
 .categoryList div {
-  border: 1px solid black;
-  width: 300px;
-  text-align: center;
+ width: 300px;
+ text-align: center;
+}
+.deleteEditBlock {
+ border: 1px solid black;
 }
