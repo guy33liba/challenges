@@ -36,13 +36,16 @@ const FrequencyCounter = () => {
    </ul>
    <button onClick={() => calculateFreuency(words)}>calculating</button>
    <div>
-    {Object.entries(frequencies).map((item, key) => {
-     return (
-      <div key={key}>
-       {key}: {item}
-      </div>
-     )
-    })}
+    <div>{JSON.stringify(frequencies)}</div>
+    <ul>
+     {Object.entries(frequencies).map((item, key) => {
+      return (
+       <div key={key}>
+        {key}: {item}
+       </div>
+      )
+     })}
+    </ul>
    </div>
   </div>
  )
