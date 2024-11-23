@@ -14,7 +14,14 @@ const FrequencyCounter = () => {
   }
   setcount(frequency)
  }
-
+ const [frequencies, setFrequencies] = useState({})
+ function calculateFreuency(arr) {
+  const frequency = {}
+  for (let word of arr) {
+   frequency[word] = (frequency[word] || 0) + 1
+  }
+  setFrequencies(frequency)
+ }
  return (
   <div>
    <button onClick={() => find(words)}>finding</button>
@@ -27,6 +34,16 @@ const FrequencyCounter = () => {
       </li>
      ))}
    </ul>
+   <button onClick={() => calculateFreuency(words)}>calculating</button>
+   <div>
+    {Object.entries(frequencies).map((item, key) => {
+     return (
+      <div key={key}>
+       {key}: {item}
+      </div>
+     )
+    })}
+   </div>
   </div>
  )
 }
