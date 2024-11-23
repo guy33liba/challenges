@@ -15,6 +15,8 @@ import FrequencyCounter from "./challenges/FrequencyCounter"
 import FindLongestWord from "./challenges/FindLongestWord"
 import FindDuplicates from "./challenges/FindDuplicates"
 import SumOfNumbers from "./challenges/SumOfNumbers"
+import ReverseString from "./challenges/ReverseString"
+import App2 from "./challenges2/App2"
 const App = () => {
  return (
   <div className="app">
@@ -32,7 +34,9 @@ const App = () => {
    {/* <FrequencyCounter /> */}
    {/* <FindLongestWord /> */}
    {/* <FindDuplicates /> */}
-   <SumOfNumbers />
+   {/* <SumOfNumbers /> */}
+   {/* <ReverseString /> */}
+   <App2 />
   </div>
  )
 }
