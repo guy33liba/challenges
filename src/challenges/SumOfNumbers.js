@@ -1,21 +1,32 @@
 import React, { useState } from "react"
 
 const SumOfNumbers = () => {
- const [summary, setsummary] = useState(0)
+ const [summary, setSummary] = useState([])
 
  const arrayofnumbers = [1, 2, 3, 4]
+ const arrayofwords = [
+  "aasa",
+  "bsas",
+  "casas",
+  "assdfd",
+  "efadasfd",
+  "fasdfasdf",
+  "asdfasdg",
+ ]
+ //  const findTheSum = (arr) => {
+ //   const sum = arr.reduce((acc, item) => acc + item, 0)
+ //   setsummary(sum)
+ //}
  const findTheSum = (arr) => {
-  for (let item of arr) {
-   setsummary(summary + item)
-  }
-  return summary
+  const result = arr
+  setSummary(result)
  }
  return (
   <div>
-   <button onClick={() => findTheSum(arrayofnumbers)}>summary</button>
+   <button onClick={() => findTheSum(arrayofwords)}>summary</button>
    <h2>
     {summary.map((item) => {
-     return <div>{item}</div>
+     return <>{item.concat(" ")}</>
     })}
    </h2>
   </div>
