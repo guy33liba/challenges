@@ -11,22 +11,24 @@ import Debounce from "./challenges/Debounce"
 import TaskTracker from "./challenges/task-tracker/TaskTracker"
 import MissingNumber from "./challenges/MissingNumber"
 import FindtheSingleNumber from "./challenges/FindtheSingleNumber"
+import FrequencyCounter from "./challenges/FrequencyCounter"
 const App = () => {
-  return (
-    <div className="app">
-      {/* <PalindromeChecker /> */}
-      {/* <PrimeChecker /> */}
-      {/* <AnagramChecker /> */}
-      {/* {<TodoList />} */}
-      {/* <Fibonacci /> */}
-      {/* <Capitilize /> */}
-      {/* <DYnamicList /> */}
-      {/* <Debounce /> */}
-      {/* <TaskTracker /> */}
-      {/* <MissingNumber/> */}
-      <FindtheSingleNumber />
-    </div>
-  )
+ return (
+  <div className="app">
+   {/* <PalindromeChecker /> */}
+   {/* <PrimeChecker /> */}
+   {/* <AnagramChecker /> */}
+   {/* {<TodoList />} */}
+   {/* <Fibonacci /> */}
+   {/* <Capitilize /> */}
+   {/* <DYnamicList /> */}
+   {/* <Debounce /> */}
+   {/* <TaskTracker /> */}
+   {/* <MissingNumber/> */}
+   {/* <FindtheSingleNumber /> */}
+   <FrequencyCounter />
+  </div>
+ )
 }
 
 export default App
