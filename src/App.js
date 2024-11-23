@@ -12,6 +12,9 @@ import TaskTracker from "./challenges/task-tracker/TaskTracker"
 import MissingNumber from "./challenges/MissingNumber"
 import FindtheSingleNumber from "./challenges/FindtheSingleNumber"
 import FrequencyCounter from "./challenges/FrequencyCounter"
+import FindLongestWord from "./challenges/FindLongestWord"
+import FindDuplicates from "./challenges/FindDuplicates"
+import SumOfNumbers from "./challenges/SumOfNumbers"
 const App = () => {
  return (
   <div className="app">
@@ -26,7 +29,10 @@ const App = () => {
    {/* <TaskTracker /> */}
    {/* <MissingNumber/> */}
    {/* <FindtheSingleNumber /> */}
-   <FrequencyCounter />
+   {/* <FrequencyCounter /> */}
+   {/* <FindLongestWord /> */}
+   {/* <FindDuplicates /> */}
+   <SumOfNumbers />
   </div>
  )
 }
