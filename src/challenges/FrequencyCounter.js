@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 const FrequencyCounter = () => {
  const words = ["apple", "banana", "apple", "orange", "banana", "apple"]
- const [start, setStart] = useState(null)
+ const [count, setcount] = useState({})
  function find(arr) {
   let frequency = {}
   for (let word of arr) {
@@ -12,16 +12,16 @@ const FrequencyCounter = () => {
     frequency[word] = 1
    }
   }
-  setStart(frequency)
+  setcount(frequency)
  }
 
  return (
   <div>
    <button onClick={() => find(words)}>finding</button>
-   <div>{JSON.stringify(start)}</div>
+   <div>{JSON.stringify(count)}</div>
    <ul>
-    {start &&
-     Object.entries(start).map(([key, value]) => (
+    {count &&
+     Object.entries(count).map(([key, value]) => (
       <li key={key}>
        {key}: {value}
       </li>
