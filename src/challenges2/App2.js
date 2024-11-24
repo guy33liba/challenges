@@ -4,6 +4,7 @@ import Palindrom2 from "./Palindrom2"
 import ReverseArray from "./ReverseArray"
 import MaxChar from "./MaxChar"
 import Touppercase from "./Touppercase"
+import Anagrams from "./Anagrams"
 const App2 = () => {
  return (
   <div>
@@ -11,7 +12,8 @@ const App2 = () => {
    {/* <Palindrom2 /> */}
    {/* <ReverseArray /> */}
    {/* <MaxChar /> */}
-   <Touppercase />
+   {/* <Touppercase /> */}
+   {/* <Anagrams /> */}
   </div>
  )
 }

@@ -22,7 +22,7 @@ const App = () => {
   <div className="app">
    {/* <PalindromeChecker /> */}
    {/* <PrimeChecker /> */}
-   {/* <AnagramChecker /> */}
+   <AnagramChecker />
    {/* {<TodoList />} */}
    {/* <Fibonacci /> */}
    {/* <Capitilize /> */}
