@@ -27,6 +27,8 @@ const MaxChar = () => {
   <div>
    <button onClick={() => findMax("aaaccccccbbb")}>click</button>
    <h2>
+    {JSON.stringify(max)}
+    <hr />
     {max.maxChar ? (
      <div>
       Most Frequent Character: <strong>{max.maxChar}</strong> <br />
