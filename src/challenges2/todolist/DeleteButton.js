@@ -11,7 +11,7 @@ const DeleteButton = ({ onDelete }) => {
       setTimeout(() => {
         onDelete() // Call the delete action after the timeout
         setIsDeleting(false) // Re-enable the button
-      }, 2000) // 2-second delay
+      }, 1000) // 2-second delay
     }
   }
 
