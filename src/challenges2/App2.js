@@ -17,9 +17,9 @@ const App2 = () => {
    {/* <MaxChar /> */}
    {/* <Touppercase /> */}
    {/* <Anagrams /> */}
-   {/* <Todolist /> */}
+   <Todolist />
    {/* <AstrixPyramid /> */}
-   {<FindthelargestNum />}
+   {/* {<FindthelargestNum />} */}
   </div>
  )
 }
