@@ -1,27 +1,7 @@
 import React, { useState } from "react"
+import EditButton from "./EditButton"
+import DeleteButton from "./DeleteButton"
 
-const DeleteButton = ({ onDelete }) => {
-  return <button onClick={onDelete}>Delete</button>
-}
-//////////////////////
-const EditButton = ({ task, onEdit }) => {
-  const [isEditing, setIsEditing] = useState(false)
-  const [editedTask, setEditedTask] = useState(task)
-
-  const handleEdit = () => {
-    if (isEditing) {
-      onEdit(editedTask)
-    }
-    setIsEditing(!isEditing)
-  }
-  return (
-    <div>
-      {isEditing ? (
-        <input type="text" value={editedTask} onChange={(e) => setEditedTask(e.target.value)} />
-      ) : null}
-    </div>
-  )
-}
 ///////////////////////
 const Todolist = () => {
   const [tasks, setTasks] = useState([])
@@ -49,10 +29,11 @@ const Todolist = () => {
         {tasks.map((task, index) => {
           return (
             <div>
-              {task.task}
-              <DeleteButton onDelete={() => deleteTask(task.id)} />
-              <EditButton task={task.task} onEdit={(newTask) => editTask(task.id, newTask)} />
-              <button onClick={() => deleteTask(task.id)}>delete</button>
+              <div>{task.task}</div>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <DeleteButton onDelete={() => deleteTask(task.id)} />
+                <EditButton task={task.task} onEdit={(newTask) => editTask(task.id, newTask)} />
+              </div>
             </div>
           )
         })}
