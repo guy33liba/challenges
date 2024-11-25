@@ -37,6 +37,9 @@ const Todolist = () => {
     setTasks(tasks.filter((item, index) => item.id !== id))
     // setTasks(tasks.filter((item, index) => index !== id))
   }
+  const editTask = (id, newTask) => {
+    setTasks(tasks.map((task) => (task.id === id ? { ...item, task: newTask } : item)))
+  }
   return (
     <div>
       <input type="text" value={task} onChange={(e) => setTask(e.target.value)} />
@@ -47,6 +50,8 @@ const Todolist = () => {
           return (
             <div>
               {task.task}
+              <DeleteButton onDelete={() => deleteTask(task.id)} />
+              <EditButton task={task.task} onEdit={(newTask) => editTask(task.id, newTask)} />
               <button onClick={() => deleteTask(task.id)}>delete</button>
             </div>
           )
