@@ -5,6 +5,7 @@ import ReverseArray from "./ReverseArray"
 import MaxChar from "./MaxChar"
 import Touppercase from "./Touppercase"
 import Anagrams from "./Anagrams"
+import Todolist from "./todolist/Todolist"
 const App2 = () => {
  return (
   <div>
@@ -14,6 +15,7 @@ const App2 = () => {
    {/* <MaxChar /> */}
    {/* <Touppercase /> */}
    {/* <Anagrams /> */}
+   <Todolist />
   </div>
  )
 }
