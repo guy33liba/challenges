@@ -4,7 +4,7 @@ const DeleteButton = ({ onDelete }) => {
   return <button onClick={onDelete}>Delete</button>
 }
 //////////////////////
-const EditButton = ({ onEdit }) => {
+const EditButton = ({ task, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [editedTask, setEditedTask] = useState(task)
 
@@ -38,7 +38,7 @@ const Todolist = () => {
     // setTasks(tasks.filter((item, index) => index !== id))
   }
   const editTask = (id, newTask) => {
-    setTasks(tasks.map((task) => (task.id === id ? { ...item, task: newTask } : item)))
+    setTasks(tasks.map((task) => (task.id === id ? { ...task, task: newTask } : task)))
   }
   return (
     <div>
