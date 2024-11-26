@@ -16,12 +16,12 @@ const AstrixPyramid = () => {
   }
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h2>Asterisk Pyramid</h2>
+      <h2>Asterix Pyramid</h2>
       <input
         type="number"
         placeholder="Enter number of rows"
         value={rows}
-        onChange={(e) => setRows(parseInt(e.target.value) || 0)}
+        onChange={(e) => setRows(e.target.value || 0)}
       />
       <button onClick={generatePyramid} style={{ marginLeft: "10px" }}>
         Generate Pyramid
