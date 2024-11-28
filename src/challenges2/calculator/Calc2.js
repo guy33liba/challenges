@@ -11,15 +11,19 @@ export default function Calc2() {
  const reducer = (state, { type, payload }) => {
   switch (type) {
    case actions.add:
-    return { ...state, current: `${current || " "}${payload.digit}` }
+    if (payload.digit === "0")
+     return { ...state, current: `${state.current || ""}${payload.digit}` }
+   case actions.clear:
+    return { current: "", previous: "", operation: null }
+   case actions.delete:
   }
  }
 
  const [{ current, previous, operation }, dispatch] = useReducer(reducer, {})
  return (
   <div className="calculator">
-   <div className="previous">previous</div>
-   <div className="current">current</div>
+   <div className="previous">{previous}</div>
+   <div className="current">{current}</div>
    <div>
     <Digit digit="1" dispatch={dispatch}>
      1
