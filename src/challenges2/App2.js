@@ -13,25 +13,27 @@ import GuessingGame from "./guessing-game/GuessingGame"
 import AstrixGame from "./small-challenges/AstrixGame"
 import MemoryGame from "./memory-game/MemoryGame"
 import Calc from "./calculator/Calc"
+import Calc2 from "./calculator/Calc2"
 const App2 = () => {
-  return (
-    <div>
-      {/* <ReverseDynamicly /> */}
-      {/* <Palindrom2 /> */}
-      {/* <ReverseArray /> */}
-      {/* <MaxChar /> */}
-      {/* <Touppercase /> */}
-      {/* <Anagrams /> */}
-      {/* <Todolist /> */}
-      {/* <AstrixPyramid /> */}
-      {/* <AstrixGame rows={5} /> */}
-      {/* {<MemoryGame />} */}
-      {<Calc />}
-      {/* {<FindthelargestNum />} */}
-      {/* <FetchUsers /> */}
-      {/* <GuessingGame /> */}
-    </div>
-  )
+ return (
+  <div>
+   {/* <ReverseDynamicly /> */}
+   {/* <Palindrom2 /> */}
+   {/* <ReverseArray /> */}
+   {/* <MaxChar /> */}
+   {/* <Touppercase /> */}
+   {/* <Anagrams /> */}
+   {/* <Todolist /> */}
+   {/* <AstrixPyramid /> */}
+   {/* <AstrixGame rows={5} /> */}
+   {/* {<MemoryGame />} */}
+   {/* {<Calc />} */}
+   {<Calc2 />}
+   {/* {<FindthelargestNum />} */}
+   {/* <FetchUsers /> */}
+   {/* <GuessingGame /> */}
+  </div>
+ )
 }
 
 export default App2
