@@ -1,26 +1,21 @@
 import React from "react"
 
 const Pyramid = ({ rows }) => {
-  // Build the pyramid as an array of strings
   const pyramid = []
-
   for (let i = 1; i <= rows; i++) {
-    let row = ""
-
-    // Add spaces
-    for (let j = 1; j <= rows - i; j++) {
-      row += " "
+    let spaces = ""
+    let stars = ""
+    // let spaces = " ".repeat(rows - i)
+    // let stars = "*".repeat(2 * i - 1)
+    for (let j = 0; j < rows - i; j++) {
+      spaces += " "
+    }
+    for (let k = 0; k < 2 * i - 1; k++) {
+      stars += "*"
     }
 
-    // Add asterisks
-    for (let k = 1; k <= 2 * i - 1; k++) {
-      row += "*"
-    }
-
-    pyramid.push(row) // Add the row to the pyramid array
+    pyramid.push(`${spaces}${stars}`)
   }
-
-  // Render the pyramid
   return (
     <div style={{ fontFamily: "monospace", textAlign: "center" }}>
       {pyramid.map((row, index) => (

@@ -11,6 +11,8 @@ import FindthelargestNum from "./small-challenges/FindthelargestNum"
 import FetchUsers from "./fetch-and-display/UsersList"
 import GuessingGame from "./guessing-game/GuessingGame"
 import AstrixGame from "./small-challenges/AstrixGame"
+import MemoryGame from "./memory-game/MemoryGame"
+import Calc from "./calculator/Calc"
 const App2 = () => {
   return (
     <div>
@@ -21,8 +23,10 @@ const App2 = () => {
       {/* <Touppercase /> */}
       {/* <Anagrams /> */}
       {/* <Todolist /> */}
-      <AstrixPyramid />
+      {/* <AstrixPyramid /> */}
       {/* <AstrixGame rows={5} /> */}
+      {/* {<MemoryGame />} */}
+      {<Calc />}
       {/* {<FindthelargestNum />} */}
       {/* <FetchUsers /> */}
       {/* <GuessingGame /> */}

@@ -6,7 +6,7 @@ const AstrixPyramid = () => {
 
   const generatePyramid = () => {
     const tempPyramid = []
-    for (let i = 1; i < rows; i++) {
+    for (let i = 1; i <= rows; i++) {
       const spaces = " ".repeat(rows - i)
       const stars = "*".repeat(2 * i - 1)
       tempPyramid.push(spaces + stars)
