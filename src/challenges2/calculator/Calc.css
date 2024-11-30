@@ -22,10 +22,11 @@
  width: 100%;
  display: flex;
  justify-content: end;
- height: 50px;
+ min-height: 50px;
  background-color: aliceblue;
  color: black;
  font-size: 40px;
+ flex-wrap: wrap;
  font-weight: bold;
 }
 .previous {

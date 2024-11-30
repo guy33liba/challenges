@@ -95,10 +95,16 @@ export default function Calc2() {
  const integerFormatter = new Intl.NumberFormat("en-us", {
   maximumFractionDigits: 0,
  })
+ function formatOperand(operand) {
+  if (operand == null) return
+  const [integer, decimal] = operand.split(".")
+  if (decimal == null) return integerFormatter.format(integer)
+  return `${integerFormatter.format(integer)}.${decimal}`
+ }
  return (
   <div className="calculator">
-   <div className="previous">{previous}</div>
-   <div className="current">{current}</div>
+   <div className="previous">{formatOperand(previous)}</div>
+   <div className="current">{formatOperand(current)}</div>
    <button className="spanTwo" onClick={() => dispatch({ type: actions.clear })}>
     AC
    </button>
@@ -149,7 +155,9 @@ export default function Calc2() {
     </Operation>
    </div>
    <div>
-    <Digit digit=".">.</Digit>
+    <Digit digit="." dispatch={dispatch}>
+     .
+    </Digit>
     <Digit digit="0" dispatch={dispatch}>
      0
     </Digit>
