@@ -5,22 +5,91 @@ const actions = {
  chooseOperation: "chooseOperation",
  clear: "clear",
  delete: "delete",
+ evaluate: "evaluate",
 }
 
 export default function Calc2() {
  const reducer = (state, { type, payload }) => {
   switch (type) {
    case actions.add:
+    if (state.overwrite) {
+     return { ...state, current: payload.digit, overwrite: false }
+    }
     if (payload.digit === "0" && state.current === "0") return state
     if (payload.digit === "." && state.current.includes(".")) return state
     return { ...state, current: `${state.current || ""}${payload.digit}` }
-   case actions.clear:
-    return { current: "", previous: "", operation: null }
+
    case actions.delete:
     if (!state.current) return state
-    return {  current: state.current.slice(0, state.current.length - 1) }
+    return { current: state.current.slice(0, state.current.length - 1) }
+   case actions.chooseOperation:
+    if (state.current == null && state.previous == null) return state
+    if (state.previous == null) {
+     return {
+      ...state,
+      operation: payload.operation,
+      previous: state.current,
+      current: null,
+     }
+    }
+    return {
+     ...state,
+     previous: evaluate(state),
+     operation: payload.operation,
+     current: null,
+    }
+   case actions.clear:
+    return { current: "", previous: "", operation: null }
+   case actions.evaluate:
+    if (state.operation == null || state.current == null || state.previous == null) {
+     return state
+    }
+    return {
+     ...state,
+     overwrite: true,
+     previous: null,
+     operation: null,
+     current: evaluate(state),
+    }
   }
  }
+ //  function evaluate(state) {
+ //   if (state.operation === "+") {
+ //    return parseFloat(state.previous) + parseFloat(state.current)
+ //   }
+ //   if (state.operation === "-") {
+ //    return parseFloat(state.previous) - parseFloat(state.current)
+ //   }
+ //   if (state.operation === "*") {
+ //    return parseFloat(state.previous) * parseFloat(state.current)
+ //   }
+ //   if (state.operation === "/") {
+ //    return parseFloat(state.previous) / parseFloat(state.current)
+ //   }
+ //   return parseFloat(state.previous)
+ //  }
+ function evaluate({ current, previous, operation }) {
+  let prev = parseFloat(previous)
+  let currentOp = parseFloat(current)
+  if (isNaN(prev) || isNaN(currentOp)) return ""
+  let computation = ""
+  switch (operation) {
+   case "+":
+    computation = prev + currentOp
+    break
+   case "-":
+    computation = prev - currentOp
+    break
+   case "*":
+    computation = prev * currentOp
+    break
+   case "/":
+    computation = prev / currentOp
+    break
+  }
+  return computation.toString()
+ }
+ ////////////////////////
  const [{ current, previous, operation }, dispatch] = useReducer(reducer, {})
 
  console.log(current)
@@ -82,7 +151,9 @@ export default function Calc2() {
     <Digit digit="0" dispatch={dispatch}>
      0
     </Digit>
-    <button className="spanTwo">=</button>
+    <button onClick={() => dispatch({ type: actions.evaluate })} className="spanTwo">
+     =
+    </button>
    </div>
   </div>
  )
