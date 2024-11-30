@@ -92,7 +92,9 @@ export default function Calc2() {
  ////////////////////////
  const [{ current, previous, operation }, dispatch] = useReducer(reducer, {})
 
- console.log(current)
+ const integerFormatter = new Intl.NumberFormat("en-us", {
+  maximumFractionDigits: 0,
+ })
  return (
   <div className="calculator">
    <div className="previous">{previous}</div>
