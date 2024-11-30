@@ -24,6 +24,9 @@
  justify-content: end;
  height: 50px;
  background-color: aliceblue;
+ color: black;
+ font-size: 30px;
+ font-weight: bold;
 }
 .previous {
  width: 100%;
