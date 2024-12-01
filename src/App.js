@@ -17,28 +17,30 @@ import FindDuplicates from "./challenges/FindDuplicates"
 import SumOfNumbers from "./challenges/SumOfNumbers"
 import ReverseString from "./challenges/ReverseString"
 import App2 from "./challenges2/App2"
+import Fiboncci2 from "./challenges/Fiboncci2"
 const App = () => {
- return (
-  <div className="app">
-   {/* <PalindromeChecker /> */}
-   {/* <PrimeChecker /> */}
-   {/* <AnagramChecker /> */}
-   {/* {<TodoList />} */}
-   {/* <Fibonacci /> */}
-   {/* <Capitilize /> */}
-   {/* <DYnamicList /> */}
-   {/* <Debounce /> */}
-   {/* <TaskTracker /> */}
-   {/* <MissingNumber/> */}
-   {/* <FindtheSingleNumber /> */}
-   {/* <FrequencyCounter /> */}
-   {/* <FindLongestWord /> */}
-   {/* <FindDuplicates /> */}
-   {/* <SumOfNumbers /> */}
-   {/* <ReverseString /> */}
-   <App2 />
-  </div>
- )
+  return (
+    <div className="app">
+      {/* <PalindromeChecker /> */}
+      {/* <PrimeChecker /> */}
+      {/* <AnagramChecker /> */}
+      {/* {<TodoList />} */}
+      {/* <Fibonacci /> */}
+      <Fiboncci2 />
+      {/* <Capitilize /> */}
+      {/* <DYnamicList /> */}
+      {/* <Debounce /> */}
+      {/* <TaskTracker /> */}
+      {/* <MissingNumber/> */}
+      {/* <FindtheSingleNumber /> */}
+      {/* <FrequencyCounter /> */}
+      {/* <FindLongestWord /> */}
+      {/* <FindDuplicates /> */}
+      {/* <SumOfNumbers /> */}
+      {/* <ReverseString /> */}
+      {/* <App2 /> */}
+    </div>
+  )
 }
 
 export default App
