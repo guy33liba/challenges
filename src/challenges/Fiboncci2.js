@@ -1,25 +1,22 @@
 import React, { useState } from "react"
 
 const Fiboncci2 = () => {
-  const [input, setInput] = useState([])
-  const [result, setResult] = useState([])
-  const fibonacc222 = (num) => {
-    let array = [0, 1]
-    for (let i = 2; i < input; i++) {
-      array.push(array[i - 1] + array[i - 2])
+  const [input, setinput] = useState([])
+  const [fibonacci, setfibonacci] = useState([])
+  const handleit = (num) => {
+    let sqe = [0, 1]
+    for (let i = 2; i < num; i++) {
+      sqe[i] = sqe[i - 1] + sqe[i - 2]
     }
-    setResult(array)
+    setfibonacci(sqe)
   }
   return (
     <div>
-      <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-      <button onClick={fibonacc222}>set fiboncacc</button>
-      <p>
-        fibonacci :
-        {result.map((item) => {
-          return <p>{item}</p>
-        })}
-      </p>
+      <input type="text" value={input} onChange={(e) => setinput(e.target.value)} />
+      <button onClick={() => handleit(input)}>Generate Fibonacci Sequence</button>
+      {fibonacci.map((item) => {
+        return <p>{item}</p>
+      })}
     </div>
   )
 }
