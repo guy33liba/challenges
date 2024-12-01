@@ -35,10 +35,10 @@ const App = () => {
       {/* <FindtheSingleNumber /> */}
       {/* <FrequencyCounter /> */}
       {/* <FindLongestWord /> */}
-      <FindDuplicates />
+      {/* <FindDuplicates /> */}
       {/* <SumOfNumbers /> */}
       {/* <ReverseString /> */}
-      {/* <App2 /> */}
+      <App2 />
     </div>
   )
 }
