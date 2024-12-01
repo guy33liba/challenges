@@ -14,6 +14,8 @@ import AstrixGame from "./small-challenges/AstrixGame"
 import MemoryGame from "./memory-game/MemoryGame"
 import Calc from "./calculator/Calc"
 import Calc2 from "./calculator/Calc2"
+import Capitilize2 from "../challenges/Capitilize2"
+import Debounce2 from "../challenges/Debounce2"
 const App2 = () => {
  return (
   <div>
@@ -28,10 +30,12 @@ const App2 = () => {
    {/* <AstrixGame rows={5} /> */}
    {/* {<MemoryGame />} */}
    {/* {<Calc />} */}
-   {<Calc2 />}
+   {/* {<Calc2 />} */}
    {/* {<FindthelargestNum />} */}
    {/* <FetchUsers /> */}
    {/* <GuessingGame /> */}
+   {/* <Capitilize2 /> */}
+   <Debounce2 />
   </div>
  )
 }
