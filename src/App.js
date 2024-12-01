@@ -26,7 +26,7 @@ const App = () => {
       {/* <AnagramChecker /> */}
       {/* {<TodoList />} */}
       {/* <Fibonacci /> */}
-      <Fiboncci2 />
+      {/* <Fiboncci2 /> */}
       {/* <Capitilize /> */}
       {/* <DYnamicList /> */}
       {/* <Debounce /> */}
@@ -35,7 +35,7 @@ const App = () => {
       {/* <FindtheSingleNumber /> */}
       {/* <FrequencyCounter /> */}
       {/* <FindLongestWord /> */}
-      {/* <FindDuplicates /> */}
+      <FindDuplicates />
       {/* <SumOfNumbers /> */}
       {/* <ReverseString /> */}
       {/* <App2 /> */}

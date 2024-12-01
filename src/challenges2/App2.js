@@ -28,14 +28,14 @@ const App2 = () => {
    {/* <Todolist /> */}
    {/* <AstrixPyramid /> */}
    {/* <AstrixGame rows={5} /> */}
-   {/* {<MemoryGame />} */}
+   {<MemoryGame />}
    {/* {<Calc />} */}
    {/* {<Calc2 />} */}
    {/* {<FindthelargestNum />} */}
    {/* <FetchUsers /> */}
    {/* <GuessingGame /> */}
    {/* <Capitilize2 /> */}
-   <Debounce2 />
+   {/* <Debounce2 /> */}
   </div>
  )
 }
