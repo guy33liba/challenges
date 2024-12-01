@@ -1,22 +1,25 @@
 .cardsGrid {
-  height: 500px;
-  width: 500px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-  grid-gap: 10px; /* Add gap between cards */
-  color: white;
-  margin: 0 auto; /* Center the grid horizontally */
-  justify-items: center; /* Center items in each cell */
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ grid-template-rows: repeat(3, auto);
+ width: 600px; /* Container width to demonstrate wrapping */
+ background-color: lightgray;
+ padding: 10px;
+ height: 500px;
 }
-.cardItem {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #333; /* Default background color for the card */
-  border: 1px solid white;
-  cursor: pointer; /* Make cards clickable */
-  position: relative;
-  overflow: hidden;
+
+.cardItem button {
+ background-color: rgb(182, 157, 157);
+ border: 1px solid black;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 18px;
+ font-weight: bold;
+ width: 100%;
+ cursor: pointer;
+ height: 100%; /* Fixed height for grid items */
+}
+.cardItem button:hover {
+  background-color:rgb(201, 140, 140); ;
 }
