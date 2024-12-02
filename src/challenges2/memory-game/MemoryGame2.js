@@ -23,7 +23,10 @@ const MemoryGame2 = () => {
       newCardsArray.push(element, element)
     }
     for (let i = newCardsArray.length - 1; i < 0; i--) {
-      const element = array[i]
+      const j = (Math.floor(Math.random() * (i + 1))[(newCardsArray[i], newCardsArray[j])] = [
+        newCardsArray[j],
+        newCardsArray[i],
+      ])
     }
     setCardsArray(newCardsArray)
   }
