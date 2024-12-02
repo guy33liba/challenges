@@ -4,6 +4,8 @@ import "./MemoryGame2.css"
 const MemoryGame2 = () => {
   const [cardsArray, setCardsArray] = useState([])
   const [flippedStates, setflippedStates] = useState([])
+  const [flippedIndices, setFlippedIndices] = useState([]) // Track flipped cards
+  const [isChecking, setIsChecking] = useState(false) // Prevent clicking during check
   let cards = [
     "photos/photo1.png",
     "photos/photo2.png",
@@ -22,21 +24,45 @@ const MemoryGame2 = () => {
       let element = items[i]
       newCardsArray.push(element, element)
     }
-    for (let i = newCardsArray.length - 1; i < 0; i--) {
-      const j = (Math.floor(Math.random() * (i + 1))[(newCardsArray[i], newCardsArray[j])] = [
-        newCardsArray[j],
-        newCardsArray[i],
-      ])
+    for (let i = newCardsArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[newCardsArray[i], newCardsArray[j]] = [newCardsArray[j], newCardsArray[i]]
     }
     setCardsArray(newCardsArray)
+    setflippedStates(new Array(newCardsArray.length).fill(false))
   }
   const handleFlip = (index) => {
+    if (isChecking || flippedStates[index]) return
     const updatedFlippedStates = [...flippedStates]
     updatedFlippedStates[index] = !updatedFlippedStates[index]
     setflippedStates(updatedFlippedStates)
+
+    const updatedFlippedIndices = [...flippedIndices, index]
+    setFlippedIndices(updatedFlippedStates)
+    if (updatedFlippedIndices === 2) {
+      setIsChecking(true)
+      setTimeout(() => checkForMatch(updatedFlippedStates))
+    }
+  }
+  const checkForMatch = (indices) => {
+    const [firstIndex, secondIndex] = indices
+    if (cardsArray[firstIndex] !== cardsArray[secondIndex]) {
+      const updatedFlippedStates = [...flippedStates]
+      updatedFlippedStates[firstIndex] = false
+      updatedFlippedStates[secondIndex] = false
+      setflippedStates(updatedFlippedStates)
+    }
+    setFlippedIndices([])
+    setIsChecking(false)
   }
   return (
     <div>
+      <h1>Memory Game</h1>
+      <p>You've matched {count} pairs of cards!</p>
+      <button className="shuffleButton" onClick={shuffleCards}>
+        Shuffle Cards
+      </button>
+      <br />
       <button className="startButton" onClick={() => handleCards(cards)}>
         Start Game
       </button>
