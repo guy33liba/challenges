@@ -22,6 +22,9 @@ const MemoryGame2 = () => {
       let element = items[i]
       newCardsArray.push(element, element)
     }
+    for (let i = newCardsArray.length - 1; i < 0; i--) {
+      const element = array[i]
+    }
     setCardsArray(newCardsArray)
   }
   const handleFlip = (index) => {
