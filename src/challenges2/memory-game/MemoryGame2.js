@@ -32,18 +32,21 @@ const MemoryGame2 = () => {
     setflippedStates(new Array(newCardsArray.length).fill(false))
   }
   const handleFlip = (index) => {
-    if (isChecking || flippedStates[index]) return
+    if (isChecking || flippedStates[index]) return // Prevent flipping during checks or re-flipping the same card
+
     const updatedFlippedStates = [...flippedStates]
-    updatedFlippedStates[index] = !updatedFlippedStates[index]
+    updatedFlippedStates[index] = true
     setflippedStates(updatedFlippedStates)
 
     const updatedFlippedIndices = [...flippedIndices, index]
-    setFlippedIndices(updatedFlippedStates)
-    if (updatedFlippedIndices === 2) {
-      setIsChecking(true)
-      setTimeout(() => checkForMatch(updatedFlippedStates))
+    setFlippedIndices(updatedFlippedIndices)
+
+    if (updatedFlippedIndices.length === 2) {
+      setIsChecking(true) // Disable clicks while checking
+      setTimeout(() => checkForMatch(updatedFlippedIndices), 1000) // Wait 1 second before checking
     }
   }
+
   const checkForMatch = (indices) => {
     const [firstIndex, secondIndex] = indices
     if (cardsArray[firstIndex] !== cardsArray[secondIndex]) {
@@ -58,10 +61,7 @@ const MemoryGame2 = () => {
   return (
     <div>
       <h1>Memory Game</h1>
-      <p>You've matched {count} pairs of cards!</p>
-      <button className="shuffleButton" onClick={shuffleCards}>
-        Shuffle Cards
-      </button>
+
       <br />
       <button className="startButton" onClick={() => handleCards(cards)}>
         Start Game
