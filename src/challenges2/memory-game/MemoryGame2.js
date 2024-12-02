@@ -12,6 +12,10 @@ const MemoryGame2 = () => {
     "photos/photo5.png",
     "photos/photo6.png",
   ]
+  const shuffleCards = () => {
+    let shuffledCards = Math.floor(Math.random(cards * 0.5))
+    setCardsArray(shuffledCards)
+  }
   function handleCards(items) {
     let newCardsArray = []
     for (let i = 0; i < items.length; i++) {
@@ -27,7 +31,7 @@ const MemoryGame2 = () => {
   }
   return (
     <div>
-      <button style={{ marginLeft: "20px" }} onClick={() => handleCards(cards)}>
+      <button className="startButton" onClick={() => handleCards(cards)}>
         Start Game
       </button>
       <div className="cardsGrid">
