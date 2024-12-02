@@ -14,10 +14,7 @@ const MemoryGame2 = () => {
     "photos/photo5.png",
     "photos/photo6.png",
   ]
-  const shuffleCards = () => {
-    let shuffledCards = Math.floor(Math.random(cards * 0.5))
-    setCardsArray(shuffledCards)
-  }
+
   function handleCards(items) {
     let newCardsArray = []
     for (let i = 0; i < items.length; i++) {
