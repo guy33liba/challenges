@@ -1,25 +1,35 @@
 .cardsGrid {
- display: grid;
- grid-template-columns: repeat(4, 1fr);
- grid-template-rows: repeat(3, auto);
- width: 600px; /* Container width to demonstrate wrapping */
- background-color: lightgray;
- padding: 10px;
- height: 500px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  width:100%; /* Container width to demonstrate wrapping */
+  height:100%; /* Container width to demonstrate wrapping */
+  padding: 10px;
+  height: 600px;
 }
 
 .cardItem button {
- background-color: rgb(182, 157, 157);
- border: 1px solid black;
- display: flex;
- justify-content: center;
- align-items: center;
- font-size: 18px;
- font-weight: bold;
- width: 100%;
- cursor: pointer;
- height: 100%; /* Fixed height for grid items */
+  background-color: rgb(182, 157, 157);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  height: 100%; /* Fixed height for grid items */ width: 200px;
+  height: 200px;margin-top: 10px;
 }
 .cardItem button:hover {
-  background-color:rgb(201, 140, 140); ;
+  background-color: rgb(201, 140, 140);
+}
+.cardFlipped {
+  transform: rotateY(180deg);
+  color: black;
+}
+.cardContent img {
+  width: 200px;
+  height: 200px;
 }
