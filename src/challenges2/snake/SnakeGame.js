@@ -67,9 +67,13 @@ const SnakeGame = () => {
     const newSnake = [...snake]
     let newHead
 
-    switch(direction){
-      case 'up':
-        newHead=[snake[snake.length-1][0]]
+    switch (direction) {
+      case "up":
+        ;(newHead = [snake[snake.length - 1][0] - 1]), snake[snake.lenth - 1][1]
+        break
+      case "down":
+        ;(newHead = [snake[snake.length - 1][0] + 1]), snake[snake.length - 1][1]
+        break
     }
     const snakeHead = newSnake[newSnake.length - 1]
     if (snakeHead[0] === food[0] && snakeHead[1] === food[1]) {
