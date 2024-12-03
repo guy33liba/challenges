@@ -17,6 +17,7 @@ import Calc2 from "./calculator/Calc2"
 import Capitilize2 from "../challenges/Capitilize2"
 import Debounce2 from "../challenges/Debounce2"
 import MemoryGame2 from "./memory-game/MemoryGame2"
+<<<<<<< HEAD
 import SnakeGame from "./snake-game/SnakeGame"
 const App2 = () => {
   return (
@@ -42,6 +43,33 @@ const App2 = () => {
       {/* <Debounce2 /> */}
     </div>
   )
+=======
+import LeetCodeChallenge from "../challenges3/LeetCodeChallenge"
+const App2 = () => {
+ return (
+  <div>
+   {/* <ReverseDynamicly /> */}
+   {/* <Palindrom2 /> */}
+   {/* <ReverseArray /> */}
+   {/* <MaxChar /> */}
+   {/* <Touppercase /> */}
+   {/* <Anagrams /> */}
+   {/* <Todolist /> */}
+   {/* <AstrixPyramid /> */}
+   {/* <AstrixGame rows={5} /> */}
+   {/* {<MemoryGame />} */}
+   {/* {<MemoryGame2 />} */}
+   {/* {<Calc />} */}
+   {/* {<Calc2 />} */}
+   {/* {<FindthelargestNum />} */}
+   {/* <FetchUsers /> */}
+   {/* <GuessingGame /> */}
+   {/* <Capitilize2 /> */}
+   {/* <Debounce2 /> */}
+   <LeetCodeChallenge />
+  </div>
+ )
+>>>>>>> 4635215c454dcd3f5876ebbdbd416c5c6ba194bc
 }
 
 export default App2
