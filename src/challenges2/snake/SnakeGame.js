@@ -64,26 +64,38 @@ const SnakeGame = () => {
   /////////////////////////////////
 
   const moveSnake = () => {
-    const newSnake = [...snake]
-    let newHead
+    const newSnake = [...snake] // Copy the snake array
 
+    let newHead
     switch (direction) {
-      case "up":
-        ;(newHead = [snake[snake.length - 1][0] - 1]), snake[snake.lenth - 1][1]
+      case "UP":
+        newHead = [snake[snake.length - 1][0] - 1, snake[snake.length - 1][1]] // Move up (decrease row)
         break
-      case "down":
-        ;(newHead = [snake[snake.length - 1][0] + 1]), snake[snake.length - 1][1]
+      case "DOWN":
+        newHead = [snake[snake.length - 1][0] + 1, snake[snake.length - 1][1]] // Move down (increase row)
         break
+      case "LEFT":
+        newHead = [snake[snake.length - 1][0], snake[snake.length - 1][1] - 1] // Move left (decrease column)
+        break
+      case "RIGHT":
+        newHead = [snake[snake.length - 1][0], snake[snake.length - 1][1] + 1] // Move right (increase column)
+        break
+      default:
+        return // No movement if direction is undefined
     }
+
+    newSnake.push(newHead) // Add the new head to the snake
+
+    // Check if snake ate the food
     const snakeHead = newSnake[newSnake.length - 1]
     if (snakeHead[0] === food[0] && snakeHead[1] === food[1]) {
-      handleFoodEaten()
+      handleFoodEaten() // Handle food eating logic
     } else {
-      newSnake.shift()
+      newSnake.shift() // Remove the tail if no food is eaten
     }
-    setSnake(newSnake)
-  }
 
+    setSnake(newSnake) // Update the snake's position
+  }
   /////////////////////////////////
 
   const generateRandomPosition = () => {
