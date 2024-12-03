@@ -17,30 +17,31 @@ import Calc2 from "./calculator/Calc2"
 import Capitilize2 from "../challenges/Capitilize2"
 import Debounce2 from "../challenges/Debounce2"
 import MemoryGame2 from "./memory-game/MemoryGame2"
+import LeetCodeChallenge from "../challenges3/LeetCodeChallenge"
 const App2 = () => {
-  return (
-    <div>
-      {/* <ReverseDynamicly /> */}
-      {/* <Palindrom2 /> */}
-      {/* <ReverseArray /> */}
-      {/* <MaxChar /> */}
-      {/* <Touppercase /> */}
-      {/* <Anagrams /> */}
-      {/* <Todolist /> */}
-      {/* <AstrixPyramid /> */}
-      {/* <AstrixGame rows={5} /> */}
-      {/* {<MemoryGame />} */}
-      {<MemoryGame2 />}
-      {/* {<Calc />} */}
-      {/* {<Calc2 />} */}
-      {/* {<FindthelargestNum />} */}
-      {/* <FetchUsers /> */}
-      {/* <GuessingGame /> */}
-      {/* <Capitilize2 /> */}
-      {/* <Debounce2 /> */}
-      <leetCode />
-    </div>
-  )
+ return (
+  <div>
+   {/* <ReverseDynamicly /> */}
+   {/* <Palindrom2 /> */}
+   {/* <ReverseArray /> */}
+   {/* <MaxChar /> */}
+   {/* <Touppercase /> */}
+   {/* <Anagrams /> */}
+   {/* <Todolist /> */}
+   {/* <AstrixPyramid /> */}
+   {/* <AstrixGame rows={5} /> */}
+   {/* {<MemoryGame />} */}
+   {/* {<MemoryGame2 />} */}
+   {/* {<Calc />} */}
+   {/* {<Calc2 />} */}
+   {/* {<FindthelargestNum />} */}
+   {/* <FetchUsers /> */}
+   {/* <GuessingGame /> */}
+   {/* <Capitilize2 /> */}
+   {/* <Debounce2 /> */}
+   <LeetCodeChallenge />
+  </div>
+ )
 }
 
 export default App2
