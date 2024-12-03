@@ -17,6 +17,7 @@ import Calc2 from "./calculator/Calc2"
 import Capitilize2 from "../challenges/Capitilize2"
 import Debounce2 from "../challenges/Debounce2"
 import MemoryGame2 from "./memory-game/MemoryGame2"
+import SnakeGame from "./snake-game/SnakeGame"
 const App2 = () => {
   return (
     <div>
@@ -30,7 +31,8 @@ const App2 = () => {
       {/* <AstrixPyramid /> */}
       {/* <AstrixGame rows={5} /> */}
       {/* {<MemoryGame />} */}
-      {<MemoryGame2 />}
+      {/* {<MemoryGame2 />} */}
+      <SnakeGame />
       {/* {<Calc />} */}
       {/* {<Calc2 />} */}
       {/* {<FindthelargestNum />} */}
