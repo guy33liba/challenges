@@ -17,7 +17,7 @@ import Calc2 from "./calculator/Calc2"
 import Capitilize2 from "../challenges/Capitilize2"
 import Debounce2 from "../challenges/Debounce2"
 import MemoryGame2 from "./memory-game/MemoryGame2"
-import SnakeGame from "./snake-game/SnakeGame"
+import SnakeGame from "./snake/SnakeGame"
 const App2 = () => {
   return (
     <div>
