@@ -20,7 +20,6 @@ const SnakeGame = () => {
 
   const isOutOfBounds = (head) => {
     const [row, col] = head
-
     return row < 0 || row >= 20 || col < 0 || col >= 20
   }
   /////////////////////////////////
@@ -93,8 +92,7 @@ const SnakeGame = () => {
         return // No movement if direction is undefined
     }
     if (isOutOfBounds(newHead)) {
-      alert("Game Over! Snake went out of bounds.")
-      resetGame() // Optional: Reset the game or end it
+      setGameover(true)
       return
     }
     newSnake.push(newHead) // Add the new head to the snake
@@ -128,21 +126,9 @@ const SnakeGame = () => {
   }
 
   /////////////////////////////////
-  const resetGame = () => {
-    setSnake([
-      [5, 5],
-      [5, 6],
-      [5, 7],
-    ]) // Reset snake to starting position
-    setFood([10, 10]) // Reset food to starting position
-    setDirection("RIGHT") // Reset direction
-  }
+
   return (
     <div>
-      {" "}
-      <button onClick={resetGame} style={{ padding: "10px", marginBottom: "10px" }}>
-        Reset Game
-      </button>
       <div style={{ display: "grid", gridTemplateRows: "repeat(20, 20px)" }}>
         {board.map((row, rowIndex) => (
           <div key={rowIndex} style={{ display: "grid", gridTemplateColumns: "repeat(20, 20px)" }}>
