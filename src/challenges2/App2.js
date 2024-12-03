@@ -38,6 +38,7 @@ const App2 = () => {
       {/* <GuessingGame /> */}
       {/* <Capitilize2 /> */}
       {/* <Debounce2 /> */}
+      <leetCode />
     </div>
   )
 }
