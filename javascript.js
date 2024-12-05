@@ -109,47 +109,138 @@
 //  count++
 // }
 // console.log(findnonrepeatingChars("swiss"))
-function firstNonRepeatingChar2(str) {
- const nonreapeatingchars = []
- for (let i = 0; i < str.length; i++) {
-  const letter = str[i]
-  if (str.indexOf(letter) === str.lastIndexOf(letter)) {
-   nonreapeatingchars.push(letter)
-  }
- }
+// function firstNonRepeatingChar2(str) {
+//   const nonreapeatingchars = []
+//   for (let i = 0; i < str.length; i++) {
+//     const letter = str[i]
+//     if (str.indexOf(letter) === str.lastIndexOf(letter)) {
+//       nonreapeatingchars.push(letter)
+//     }
+//   }
 
- return nonreapeatingchars.length > 0 ? nonreapeatingchars : "none"
-}
+//   return nonreapeatingchars.length > 0 ? nonreapeatingchars : "none"
+// }
 
-console.log(firstNonRepeatingChar2("swiss")) // Output: "w"
-console.log(firstNonRepeatingChar2("aabbcc")) // Output: "None"
+// console.log(firstNonRepeatingChar2("swiss")) // Output: "w"
+// console.log(firstNonRepeatingChar2("aabbcc")) // Output: "None"
 
-function fizz() {
- let array = []
- for (let i = 1; i < 100; i++) {
-  if (i % 3 === 0) {
-   array.push("fizz")
-  } else if (i % 5 === 0) {
-   array.push("buzz")
-  } else if (i % 3 === 0 && i % 5 === 0) {
-   array.push("fizzBuzz")
-  } else {
-   array.push(i)
+// function fizz() {
+//   let array = []
+//   for (let i = 1; i < 100; i++) {
+//     if (i % 3 === 0) {
+//       array.push("fizz")
+//     } else if (i % 5 === 0) {
+//       array.push("buzz")
+//     } else if (i % 3 === 0 && i % 5 === 0) {
+//       array.push("fizzBuzz")
+//     } else {
+//       array.push(i)
+//     }
+//   }
+//   return console.log(array)
+// }
+// fizz()
+
+// const findnonrepeat1 = (str) => {
+//   const charcount = {}
+
+//   for (const letter of str) {
+//     if (!charcount[letter]) {
+//       charcount[letter] = 1 // Initialize count to 1 if the letter is not in charcount
+//     } else {
+//       charcount[letter] += 1 // Increment count if the letter already exists in charcount
+//     }
+//   }
+
+//   for (const char of str) {
+//     if (charcount[char] === 1) {
+//       return char // Return the first non-repeating character
+//     }
+//   }
+
+//   return "none" // If no non-repeating character is found
+// }
+
+// console.log(findnonrepeat1("as")) // Output: "a"
+
+// function reveresing(str) {
+//   let reversed = ""
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     reversed += str[i]
+//   }
+//   return console.log(reversed)
+// }
+// reveresing("hello")
+
+// function removeDuplicates(arr) {
+//   let uniquearray = []
+//   for (let i = 0; i < arr.length; i++) {
+//     if (!uniquearray.includes(arr[i])) {
+//       uniquearray.push(arr[i])
+//     }
+//   }
+//   return uniquearray
+// }
+// console.log(removeDuplicates([1, 2, 2, 3,3,3,3, 4, 4, 5]))
+
+// function findindexlargets(arr) {
+//   let maxIndex = 0
+//   let value = {}
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > arr[maxIndex]) {
+//       maxIndex = arr[i]
+//       value = maxIndex
+//     }
+//   }
+//   return console.log(value)
+// }
+// findindexlargets([1, 7, 6, 2])
+
+// function findMissingNum(arr) {
+//   let n = arr.length + 1
+//   console.log(n)
+//   let totalsum = (n * (n + 1)) / 2
+//   console.log(totalsum)
+//   let arraySum = arr.reduce((sum, num) => sum + num, 0)
+//   console.log(arraySum)
+//   return totalsum - arraySum
+// }
+// console.log(findMissingNum([3, 7, 1, 2, 8, 4, 5]))
+
+// function findPalindrome(str) {
+//   let j = str.length - 1
+//   for (let i = 0; i < str.length / 2; i++) {
+//     let item = str[i]
+//     if (item !== str[j]) {
+//       return false
+//     }
+//     j--
+//   }
+//   return true
+// }
+// console.log(findPalindrome("abas"))
+
+// function vowelsFider(str) {
+//   let vowels = "aeiou"
+//   let count = 0
+//   for (let i = 0; i < str.length; i++) {
+//     if (vowels.includes(str[i])) {
+//       count++
+//     }
+//   }
+//   return console.log(count)
+// }
+// vowelsFider('ae22i')
+
+function findlongwww(str) {
+  const word = str.split(" ")
+  let longest = ""
+  for (let i = 0; i < word.length; i++) {
+    const current = word[i]
+    if (current.length > longest.length) {
+      longest = current
+    }
   }
- }
- return console.log(array)
+  return console.log(longest)
 }
-fizz()
-const findnonrepeat = (str) => {
- const charcount = {}
- let count = 0
- for (const letter of str) {
-  char[letter] += 1
- }
- for (const char of str) {
-  if (charcount[char] === 1) {
-   return char
-  }
- }
- return none
-}
+findlongwww("I am learning JavaScript at OpenAI")
