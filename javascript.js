@@ -243,7 +243,7 @@ function findlongwww(str) {
   }
   return console.log(longest)
 }
-findlongwww("I am learning JavaScript at OpenAI")
+// findlongwww("I am learning JavaScript at OpenAI")
 
 const countOccurrences = (str) => {
   const result = {}
@@ -258,4 +258,18 @@ const countOccurrences = (str) => {
   }
   return result
 }
-console.log(countOccurrences('hello'))
+// console.log(countOccurrences("hello"))
+
+function nonreopeatrst(str) {
+  const charcount = []
+  let count = 0
+  for (let i = 0; i < str.length; i++) {
+    const letter = str[i]
+    if (str.indexOf(letter) === str.lastIndexOf(letter)) {
+      count++
+      charcount.push(letter)
+    }
+  }
+  return console.log(charcount)
+}
+nonreopeatrst("wwsaddf")
