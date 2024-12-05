@@ -244,3 +244,18 @@ function findlongwww(str) {
   return console.log(longest)
 }
 findlongwww("I am learning JavaScript at OpenAI")
+
+const countOccurrences = (str) => {
+  const result = {}
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i]
+    if (result[char]) {
+      result[char]++
+    } else {
+      result[char] = 1
+    }
+  }
+  return result
+}
+console.log(countOccurrences('hello'))
