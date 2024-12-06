@@ -334,6 +334,28 @@ const result = [
  { name: "kyle", age: 10 },
 ]
 function sortbyage(str) {
- return str.sort((a, b) =>a.age - b.age)
+ return str.sort((a, b) => a.age - b.age)
 }
 console.log(sortbyage(result))
+function sortByAge(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j].age > arr[j + 1].age) {
+        // Swap the objects if the age of the current object is greater
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+// Example data
+const result1 = [
+  { name: "John", age: 25 },
+  { name: "Jane", age: 20 },
+  { name: "Bob", age: 30 },
+];
+
+console.log(sortByAge(result));
