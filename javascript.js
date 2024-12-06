@@ -272,4 +272,18 @@ function nonreopeatrst(str) {
   }
   return console.log(charcount)
 }
-nonreopeatrst("wwsaddf")
+// nonreopeatrst("wwsaddf")
+
+function nnonorepeat(str) {
+  const frequency = {}
+  for (const char of str) {
+    frequency[char] = (frequency[char] || 0) + 1
+  }
+  for (const char of str) {
+    if (frequency[char] === 1) {
+      return char
+    }
+  }
+  return null
+}
+console.log(nnonorepeat("ssd"))
