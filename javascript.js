@@ -230,132 +230,156 @@
 //   }
 //   return console.log(count)
 // }
-// vowelsFider('ae22i')
+// // vowelsFider('ae22i')
 
-function findlongwww(str) {
- const word = str.split(" ")
- let longest = ""
- for (let i = 0; i < word.length; i++) {
-  const current = word[i]
-  if (current.length > longest.length) {
-   longest = current
-  }
- }
- return console.log(longest)
-}
-// findlongwww("I am learning JavaScript at OpenAI")
+// function findlongwww(str) {
+//  const word = str.split(" ")
+//  let longest = ""
+//  for (let i = 0; i < word.length; i++) {
+//   const current = word[i]
+//   if (current.length > longest.length) {
+//    longest = current
+//   }
+//  }
+//  return console.log(longest)
+// }
+// // findlongwww("I am learning JavaScript at OpenAI")
 
-const countOccurrences = (str) => {
- const result = {}
+// const countOccurrences = (str) => {
+//  const result = {}
 
- for (let i = 0; i < str.length; i++) {
-  const char = str[i]
-  if (result[char]) {
-   result[char]++
-  } else {
-   result[char] = 1
-  }
- }
- return result
-}
-// console.log(countOccurrences("hello"))
+//  for (let i = 0; i < str.length; i++) {
+//   const char = str[i]
+//   if (result[char]) {
+//    result[char]++
+//   } else {
+//    result[char] = 1
+//   }
+//  }
+//  return result
+// }
+// // console.log(countOccurrences("hello"))
 
-function nonreopeatrst(str) {
- const charcount = []
- let count = 0
- for (let i = 0; i < str.length; i++) {
-  const letter = str[i]
-  if (str.indexOf(letter) === str.lastIndexOf(letter)) {
-   count++
-   charcount.push(letter)
-  }
- }
- return console.log(charcount)
-}
-// nonreopeatrst("wwsaddf")
+// function nonreopeatrst(str) {
+//  const charcount = []
+//  let count = 0
+//  for (let i = 0; i < str.length; i++) {
+//   const letter = str[i]
+//   if (str.indexOf(letter) === str.lastIndexOf(letter)) {
+//    count++
+//    charcount.push(letter)
+//   }
+//  }
+//  return console.log(charcount)
+// }
+// // nonreopeatrst("wwsaddf")
 
-function nnonorepeat(str) {
- const frequency = {}
- for (const char of str) {
-  frequency[char] = (frequency[char] || 0) + 1
- }
- for (const char of str) {
-  if (frequency[char] === 1) {
-   return char
-  }
- }
- return null
-}
-console.log(nnonorepeat("ssd"))
+// function nnonorepeat(str) {
+//  const frequency = {}
+//  for (const char of str) {
+//   frequency[char] = (frequency[char] || 0) + 1
+//  }
+//  for (const char of str) {
+//   if (frequency[char] === 1) {
+//    return char
+//   }
+//  }
+//  return null
+// }
+// console.log(nnonorepeat("ssd"))
 
-function fuzzfuzz(num) {
- let array = []
- for (let i = 0; i < 100; i++) {
-  if (i % 3 === 0) {
-   array.push("fuzz")
-  } else if (i % 5 === 0) {
-   array.push("buzz")
-  } else if (i % 3 == 0 && i % 5 === 0) {
-   array.push("fuzzBuzz")
-  } else {
-   array.push(i)
-  }
- }
- return console.log(array)
-}
+// function fuzzfuzz(num) {
+//  let array = []
+//  for (let i = 0; i < 100; i++) {
+//   if (i % 3 === 0) {
+//    array.push("fuzz")
+//   } else if (i % 5 === 0) {
+//    array.push("buzz")
+//   } else if (i % 3 == 0 && i % 5 === 0) {
+//    array.push("fuzzBuzz")
+//   } else {
+//    array.push(i)
+//   }
+//  }
+//  return console.log(array)
+// }
 
-fuzzfuzz()
-fuzzfuzz //   let array = []
-//   for (let i = 1; i < 100; i++) {
-//     if (i % 3 === 0) {
-//       array.push("fizz")
-//     } else if (i % 5 === 0) {
-//       array.push("buzz")
-//     } else if (i % 3 === 0 && i % 5 === 0) {
-//       array.push("fizzBuzz")
-//     } else {
-//       array.push(i)
+// fuzzfuzz()
+// fuzzfuzz //   let array = []
+// //   for (let i = 1; i < 100; i++) {
+// //     if (i % 3 === 0) {
+// //       array.push("fizz")
+// //     } else if (i % 5 === 0) {
+// //       array.push("buzz")
+// //     } else if (i % 3 === 0 && i % 5 === 0) {
+// //       array.push("fizzBuzz")
+// //     } else {
+// //       array.push(i)
+// //     }
+// //   }
+// function removedupclicccc(str) {
+//  for (let i = 0; i < str.length; i++) {
+//   if (str[i] === str[i + 1]) {
+//    str = str.slice(0, i) + str.slice(i + 1)
+//    i--
+//   }
+//  }
+//  return str
+// }
+// console.log(removedupclicccc("aacccss"))
+
+// const result = [
+//  { name: "john", age: 25 },
+//  { name: "jane", age: 20 },
+//  { name: "kyle", age: 10 },
+// ]
+// function sortbyage(str) {
+//  return str.sort((a, b) => a.age - b.age)
+// }
+// console.log(sortbyage(result))
+// function sortByAge(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length - i - 1; j++) {
+//       if (arr[j].age > arr[j + 1].age) {
+//         // Swap the objects if the age of the current object is greater
+//         const temp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = temp;
+//       }
 //     }
 //   }
-function removedupclicccc(str) {
- for (let i = 0; i < str.length; i++) {
-  if (str[i] === str[i + 1]) {
-   str = str.slice(0, i) + str.slice(i + 1)
-   i--
-  }
- }
- return str
-}
-console.log(removedupclicccc("aacccss"))
+//   return arr;
+// }
 
-const result = [
- { name: "john", age: 25 },
- { name: "jane", age: 20 },
- { name: "kyle", age: 10 },
-]
-function sortbyage(str) {
- return str.sort((a, b) => a.age - b.age)
-}
-console.log(sortbyage(result))
-function sortByAge(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-      if (arr[j].age > arr[j + 1].age) {
-        // Swap the objects if the age of the current object is greater
-        const temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
-    }
-  }
-  return arr;
-}
+// // Example data
+// const result1 = [
+//   { name: "John", age: 25 },
+//   { name: "Jane", age: 20 },
+//   { name: "Bob", age: 30 },
+// ];
 
-// Example data
-const result1 = [
-  { name: "John", age: 25 },
-  { name: "Jane", age: 20 },
-  { name: "Bob", age: 30 },
-];
+// console.log(sortByAge(result));
 
-console.log(sortByAge(result));
+let player = prompt("Please enter").toLowerCase()
+let computer = getrandomNumber()
+let result = ""
+if (
+  (player === "scissors" && computer == "paper") ||
+  (player == "rock" && computer == "scissors") ||
+  (player == "paper" && computer == "rock")
+) {
+  result = "player win"
+} else if (
+  (computer === "scissors" && player == "paper") ||
+  (computer == "rock" && player == "scissors") ||
+  (computer == "paper" && player == "rock")
+) {
+  result = "computer win"
+} else {
+  result = "draw"
+}
+function getrandomNumber() {
+  const choices = ["scissors", "paper", "rock"]
+  return choices[Math.floor(Math.random() * 3)]
+}
+getrandomNumber()
