@@ -35,8 +35,8 @@ const App2 = () => {
       {/* {<MemoryGame2 />} */}
       {/* <SnakeGame /> */}
       {/* {<Calc />} */}
-      {/* {<Calc2 />} */}
-      <Calc3 />
+      {<Calc2 />}
+      {/* <Calc3 /> */}
       {/* {<FindthelargestNum />} */}
       {/* <FetchUsers /> */}
       {/* <GuessingGame /> */}
