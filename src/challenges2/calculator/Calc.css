@@ -1,40 +1,42 @@
-.calculator button {
- font-size: 30px;
- width: 80px;
- height: 80px;
- background-color: white;
- color: black;
- border: 1px solid black;
- border-radius: 30px;
+* {
+  box-sizing: border-box;
 }
-.calculator button:hover {
- background-color: lightgray;
- transition: 0.5s;
+body {
+  margin: 0;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
 }
-.calculator {
- border-radius: 30px;
- background-color: blanchedalmond;
+.calculatorGrid {
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
-.calculator .spanTwo {
- width: 160px;
+.spanTwo {
+  grid-column: span 2;
 }
-.current {
- width: 100%;
- display: flex;
- justify-content: end;
- min-height: 50px;
- background-color: aliceblue;
- color: black;
- font-size: 40px;
- flex-wrap: wrap;
- font-weight: bold;
+.output {
+  grid-column: 1/-1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.75rem;
+  word-wrap: break-word;
+  word-break: break-all;
 }
-.previous {
- width: 100%;
- display: flex;
- justify-content: end;
- height: 50px;
- font-size: 30px;
+.output .previousOperand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
 
- background-color: aliceblue;
+.output .currentOperand {
+  color: white;
+  font-size: 2.5rem;
+}
+.calculatorGrid > button {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid black;
+  color: black;
+  font-size: 2.5rem;
 }

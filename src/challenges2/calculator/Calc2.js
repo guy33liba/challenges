@@ -68,6 +68,7 @@
 //  //   }
 //  //   return parseFloat(state.previous)
 //  //  }
+
 //  function evaluate({ current, previous, operation }) {
 //   let prev = parseFloat(previous)
 //   let currentOp = parseFloat(current)
@@ -186,31 +187,140 @@
 // }
 
 import React, { useReducer } from "react"
-
+import "./Calc.css"
+export const actions = {
+  addDigit: "addDigit",
+  chooseOperation: "addOperation",
+  clear: "clear",
+  evaluate: "evaluate",
+  delete: "delete",
+}
 const Calc2 = () => {
-  const actions = [
-    { addDigit: "addDigit", chooseOperation: "addOperation", clear: "clear", evaluate: "evaluate", delete: "delete" },
-  ]
   const reducer = (state, { type, payload }) => {
     switch (type) {
       case actions.addDigit:
+        if (payload.digit === 0 && state.currentoperand === "0") return state
+        if (payload.digit === "." && state.currentoperand.includes(".")) return state
+        return {
+          ...state,
+          currentoperand: `${state.currentoperand || ""}${payload.digit}`,
+        }
+      case actions.chooseOperation:
+        if (state.currentoperand === null && state.previousoperand == null) return state
+
+        if (state.currentoperand == null) {
+          return {
+            ...state,
+            operation: payload.operation,
+          }
+        }
+        if (state.previousoperand == null) {
+          return {
+            ...state,
+            operation: payload.operation,
+            previousoperand: state.currentoperand,
+            currentoperand: null,
+          }
+        }
+        return {
+          ...state,
+          previousoperand: evaluate(state),
+          operation: payload.operation,
+          currentoperand: null,
+        }
+      case actions.clear:
+        return {}
+      case actions.evaluate:
+        if (
+          state.operation === null ||
+          state.currentoperand === null ||
+          state.previousoperand === null
+        ) {
+          return state
+        }
+        return {
+          currentoperand: evaluate(state),
+          previousoperand: null,
+          operation: null,
+        }
     }
   }
-  const [state, dispatch] = useReducer(reducer, {})
+  function evaluate({ currentoperand, previousoperand, operation }) {
+    const prev = parseFloat(previousoperand)
+    const current = parseFloat(currentoperand)
+    if (isNaN(prev) || isNaN(current)) return ""
+    let computation = ""
+    switch (operation) {
+      case "+":
+        computation = prev + current
+        break
+      case "-":
+        computation = prev - current
+        break
+      case "*":
+        computation = prev * current
+        break
+      case "÷":
+        computation = prev / current
+        break
+    }
+    return computation.toString()
+  }
+  const [{ currentoperand, previousoperand, operation }, dispatch] = useReducer(
+    reducer,
+    {},
+  )
   return (
     <div>
       <div className="calculatorGrid">
         <div className="output">
-          <div className="previousOperand"></div>
-          <div className="currentOperand"></div>
+          <div className="previousOperand">
+            {previousoperand}
+            {operation}
+          </div>
+          <div className="currentOperand">{currentoperand}</div>
         </div>
-        <button className="spanTwo"></button>
-        <button className="spanTwo">AC</button>
-        <button className="DEL">DEL</button>
-        <button className="divide">÷</button>
+        <button className="spanTwo" onClick={() => dispatch({ type: actions.clear })}>
+          AC
+        </button>
+        <button>DEL</button>
+        <OperationButton operation="÷" dispatch={dispatch} />
+        <DigitButton digit={1} dispatch={dispatch} />
+        <DigitButton digit={2} dispatch={dispatch} />
+        <DigitButton digit={3} dispatch={dispatch} />
+        <OperationButton operation="*" dispatch={dispatch} />
+        <DigitButton digit={4} dispatch={dispatch} />
+        <DigitButton digit={5} dispatch={dispatch} />
+        <DigitButton digit={6} dispatch={dispatch} />
+        <OperationButton operation="+" dispatch={dispatch} />
+        <DigitButton digit={7} dispatch={dispatch} />
+        <DigitButton digit={8} dispatch={dispatch} />
+        <DigitButton digit={9} dispatch={dispatch} />
+        <OperationButton operation="-" dispatch={dispatch} />
+        <DigitButton digit={"."} dispatch={dispatch} />
+        <DigitButton digit={0} dispatch={dispatch} />
+        <button className="spanTwo" onClick={() => dispatch({ type: actions.evaluate })}>
+          =
+        </button>
       </div>
     </div>
   )
 }
 
 export default Calc2
+
+export function DigitButton({ dispatch, digit }) {
+  return (
+    <button onClick={() => dispatch({ type: actions.addDigit, payload: { digit } })}>
+      {digit}
+    </button>
+  )
+}
+export function OperationButton({ dispatch, operation }) {
+  return (
+    <button
+      onClick={() => dispatch({ type: actions.chooseOperation, payload: { operation } })}>
+      {operation}
+    </button>
+  )
+}
