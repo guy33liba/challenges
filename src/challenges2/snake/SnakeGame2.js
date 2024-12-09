@@ -7,9 +7,50 @@ function App() {
     { x: 4, y: 2 },
   ])
   const [food, setfood] = useState(null)
+  const [direction, setDirection] = useState("right")
   const rows = 20
   const cols = 20
-
+  const moveSnake = () => {
+    const head = { ...snake[0] }
+    switch (direction) {
+      case "up":
+        head.y -= 1
+        break
+      case "down":
+        head.y += 1
+        break
+      case "left":
+        head.x -= 1
+        break
+      case "right":
+        head.x += 1
+        break
+      default:
+        break
+    }
+    const newSnake = [head, ...snake.slice(0, snake.length - 1)]
+    if (head.x === food.x && head.y === food.y) {
+      newSnake.push(snake[snake.length - 1])
+      generateFood()
+    }
+    setSnake(newSnake)
+  }
+  const handleKeyPresses = (e) => {
+    switch (e.key) {
+      case "ArrowUp":
+        !direction === "down" && setDirection("up")
+        break
+      case "ArrowDown":
+        !direction === "up" && setDirection("down")
+        break
+      case "ArrowLeft":
+        !direction === "right" && setDirection("left")
+        break
+      case "ArrowRight":
+        !direction === "left" && setDirection("right")
+        break
+    }
+  }
   const generateFood = () => {
     const emptyCells = []
     for (let i = 0; i < rows; i++) {
