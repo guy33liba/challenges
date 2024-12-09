@@ -17,8 +17,8 @@
 .cell {
   width: 20px; /* Cell width */
   height: 20px; /* Cell height */
-  background-color: white; /* Cell background color */
-  border: 1px solid #ddd; /* Optional: Add cell borders for visibility */
+  background-color: rgb(179, 170, 170); /* Cell background color */
+  border: 1px solid #1d1b1b; /* Optional: Add cell borders for visibility */
 }
 .snake {
   background-color: green;

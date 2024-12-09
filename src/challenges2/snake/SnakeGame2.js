@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./SnakeGame.css"
+import { clear } from "@testing-library/user-event/dist/clear"
+
 function App() {
   const [snake, setSnake] = useState([
     { x: 2, y: 2 },
     { x: 3, y: 2 },
     { x: 4, y: 2 },
   ])
-  const [food, setfood] = useState(null)
+  const [food, setFood] = useState(null)
   const [direction, setDirection] = useState("right")
+  const [gameOver, setGameOver] = useState(false)
   const rows = 20
   const cols = 20
+  const intervalRef = useRef(null)
+  useEffect(() => {
+    if (gameOver) return
+    intervalRef.current = setInterval(() => {
+      moveSnake()
+    }, 100)
+    return () => {
+      clearInterval(intervalRef.current)
+    }
+  }, [snake, direction, gameOver])
+  // Move snake logic
   const moveSnake = () => {
     const head = { ...snake[0] }
     switch (direction) {
@@ -28,29 +42,71 @@ function App() {
       default:
         break
     }
+
+    if (checkGameOver()) {
+      alert("Game Over!")
+      setGameOver(true)
+      setSnake([
+        { x: 2, y: 2 },
+        { x: 3, y: 2 },
+        { x: 4, y: 2 },
+      ])
+      setDirection("right")
+      return
+    }
+
     const newSnake = [head, ...snake.slice(0, snake.length - 1)]
+
     if (head.x === food.x && head.y === food.y) {
-      newSnake.push(snake[snake.length - 1])
+      newSnake.push(snake[snake.length - 1]) // Add a new segment
       generateFood()
     }
+
     setSnake(newSnake)
   }
+
+  // Check game over condition
+  const checkGameOver = () => {
+    const head = snake[0]
+    if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
+      return true
+    }
+    for (let i = 1; i < snake.length; i++) {
+      if (snake[i].x === head.x && snake[i].y === head.y) {
+        return true
+      }
+    }
+    return false
+  }
+
+  // Handle keypresses for direction change
   const handleKeyPresses = (e) => {
     switch (e.key) {
       case "ArrowUp":
-        !direction === "down" && setDirection("up")
+        if (direction !== "down") setDirection("up")
         break
       case "ArrowDown":
-        !direction === "up" && setDirection("down")
+        if (direction !== "up") setDirection("down")
         break
       case "ArrowLeft":
-        !direction === "right" && setDirection("left")
+        if (direction !== "right") setDirection("left")
         break
       case "ArrowRight":
-        !direction === "left" && setDirection("right")
+        if (direction !== "left") setDirection("right")
+        break
+      default:
         break
     }
   }
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPresses)
+    return () => {
+      document.removeEventListener("keydown", handleKeyPresses)
+    }
+  }, [direction])
+
+  // Generate food logic
   const generateFood = () => {
     const emptyCells = []
     for (let i = 0; i < rows; i++) {
@@ -60,29 +116,28 @@ function App() {
         }
       }
     }
-    const randomindex = Math.floor(Math.random() * emptyCells.length)
-    const foodPosition = emptyCells[randomindex]
-
-    setfood(foodPosition)
+    const randomIndex = Math.floor(Math.random() * emptyCells.length)
+    const foodPosition = emptyCells[randomIndex]
+    setFood(foodPosition)
   }
 
-  // Generate food when the component mounts
+  // Generate food when the component mounts or snake changes
   useEffect(() => {
     generateFood()
-  }, [snake]) // Re-generate foo
-  const board = []
+  }, [snake])
 
+  // Board rendering
+  const board = []
   for (let i = 0; i < rows; i++) {
     const row = []
     for (let j = 0; j < cols; j++) {
-      // Check if the current cell is part of the snake's body
       const isSnakeCell = snake.some((segment) => segment.x === j && segment.y === i)
       const isFoodCell = food && food.x === j && food.y === i
       row.push(
         <div
           key={`${i}-${j}`}
           className={`cell ${isSnakeCell ? "snake" : ""}${
-            isFoodCell ? "food" : ""
+            isFoodCell ? " food" : ""
           }`}></div>,
       )
     }
@@ -92,6 +147,7 @@ function App() {
       </div>,
     )
   }
+
   return <div className="board">{board}</div>
 }
 
