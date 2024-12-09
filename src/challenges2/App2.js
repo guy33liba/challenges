@@ -35,11 +35,11 @@ const App2 = () => {
       {/* <AstrixGame rows={5} /> */}
       {/* {<MemoryGame />} */}
       {/* {<MemoryGame2 />} */}
-      {/* <SnakeGame /> */}
+      <SnakeGame />
       {/* {<Calc />} */}
       {/* {<Calc2 />} */}
       {/* <RockpaperScissors /> */}
-      <SnakeGame2 />
+      {/* <SnakeGame2 /> */}
       {/* <Calc3 /> */}
       {/* {<FindthelargestNum />} */}
       {/* <FetchUsers /> */}
