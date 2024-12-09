@@ -19,6 +19,8 @@ import Debounce2 from "../challenges/Debounce2"
 import MemoryGame2 from "./memory-game/MemoryGame2"
 import SnakeGame from "./snake/SnakeGame"
 import Calc3 from "./calculator/Calc3"
+import RockpaperScissors from "./rock-paper-scissors/RockpaperScissors"
+import SnakeGame2 from "./snake/SnakeGame2"
 const App2 = () => {
   return (
     <div>
@@ -35,7 +37,9 @@ const App2 = () => {
       {/* {<MemoryGame2 />} */}
       {/* <SnakeGame /> */}
       {/* {<Calc />} */}
-      {<Calc2 />}
+      {/* {<Calc2 />} */}
+      {/* <RockpaperScissors /> */}
+      <SnakeGame2 />
       {/* <Calc3 /> */}
       {/* {<FindthelargestNum />} */}
       {/* <FetchUsers /> */}

@@ -271,7 +271,7 @@ const Calc2 = () => {
     {},
   )
   return (
-    <div>
+    <div className="calc2Grid">
       <div className="calculatorGrid">
         <div className="output">
           <div className="previousOperand">

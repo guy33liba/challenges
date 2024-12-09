@@ -360,26 +360,3 @@
 
 // console.log(sortByAge(result));
 
-let player = prompt("Please enter").toLowerCase()
-let computer = getrandomNumber()
-let result = ""
-if (
-  (player === "scissors" && computer == "paper") ||
-  (player == "rock" && computer == "scissors") ||
-  (player == "paper" && computer == "rock")
-) {
-  result = "player win"
-} else if (
-  (computer === "scissors" && player == "paper") ||
-  (computer == "rock" && player == "scissors") ||
-  (computer == "paper" && player == "rock")
-) {
-  result = "computer win"
-} else {
-  result = "draw"
-}
-function getrandomNumber() {
-  const choices = ["scissors", "paper", "rock"]
-  return choices[Math.floor(Math.random() * 3)]
-}
-getrandomNumber()
