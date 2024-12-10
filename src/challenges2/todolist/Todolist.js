@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import EditButton from "./EditButton"
 import DeleteButton from "./DeleteButton"
 import Completed from "./Completed"
@@ -9,6 +9,8 @@ const Todolist = () => {
  const [tasks, setTasks] = useState([])
  const [task, setTask] = useState("")
  const [filterTasks, setFilterTasks] = useState(tasks)
+ const inputRef = useRef("")
+
  const addTask = () => {
   if (task.trim() === "") return
   const newTask = {
@@ -16,10 +18,12 @@ const Todolist = () => {
    id: tasks.length,
    completed: false,
   }
+  //////////////
   const updatedTasks = [...tasks, newTask]
   setTasks(updatedTasks)
   setFilterTasks(updatedTasks)
   setTask("")
+  inputRef.current?.focus()
  }
  const deleteTask = (id) => {
   if (tasks.length === 0) return
@@ -28,9 +32,11 @@ const Todolist = () => {
   setFilterTasks(updatedTasks)
   // setTasks(tasks.filter((item, index) => index !== id))
  }
+ //////////////
  const editTask = (id, newTask) => {
   setTasks(tasks.map((task) => (task.id === id ? { ...task, task: newTask } : task)))
  }
+ /////////////
  const completedTask = (id) => {
   const updatedTasks = tasks.map((task) =>
    task.id === id ? { ...task, completed: !task.completed } : task
@@ -38,9 +44,22 @@ const Todolist = () => {
   setTasks(updatedTasks)
   setFilterTasks(updatedTasks)
  }
+ /////////////
+ function focusOnInput() {
+  inputRef.current.focus()
+ }
+ useEffect(() => {
+  focusOnInput()
+ }, [])
+ ///////////////
  return (
   <div>
-   <input type="text" value={task} onChange={(e) => setTask(e.target.value)} />
+   <input
+    type="text"
+    ref={inputRef}
+    value={task}
+    onChange={(e) => setTask(e.target.value)}
+   />
    <button onClick={() => addTask()}>Add Task</button>
    <FilterTask tasks={tasks} setFilterTasks={setFilterTasks} />
    <ul>

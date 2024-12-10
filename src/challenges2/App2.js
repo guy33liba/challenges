@@ -22,34 +22,36 @@ import Calc3 from "./calculator/Calc3"
 import RockpaperScissors from "./rock-paper-scissors/RockpaperScissors"
 import SnakeGame2 from "./snake/SnakeGame2"
 import MemoryGame3 from "./memory-game/MemoryGame3"
+import MemoryGame4 from "./memory-game/MemoryGame4"
 const App2 = () => {
-  return (
-    <div>
-      {/* <ReverseDynamicly /> */}
-      {/* <Palindrom2 /> */}
-      {/* <ReverseArray /> */}
-      {/* <MaxChar /> */}
-      {/* <Touppercase /> */}
-      {/* <Anagrams /> */}
-      {/* <Todolist /> */}
-      {/* <AstrixPyramid /> */}
-      {/* <AstrixGame rows={5} /> */}
-      {/* {<MemoryGame />} */}
-      {/* {<MemoryGame2 />} */}
-      {/* <SnakeGame /> */}
-      {/* {<Calc />} */}
-      {/* {<Calc2 />} */}
-      {/* <RockpaperScissors /> */}
-      {/* <SnakeGame2 /> */}
-      <MemoryGame3 />
-      {/* <Calc3 /> */}
-      {/* {<FindthelargestNum />} */}
-      {/* <FetchUsers /> */}
-      {/* <GuessingGame /> */}
-      {/* <Capitilize2 /> */}
-      {/* <Debounce2 /> */}
-    </div>
-  )
+ return (
+  <div>
+   {/* <ReverseDynamicly /> */}
+   {/* <Palindrom2 /> */}
+   {/* <ReverseArray /> */}
+   {/* <MaxChar /> */}
+   {/* <Touppercase /> */}
+   {/* <Anagrams /> */}
+   {/* <Todolist /> */}
+   {/* <AstrixPyramid /> */}
+   {/* <AstrixGame rows={5} /> */}
+   {/* {<MemoryGame />} */}
+   {/* {<MemoryGame2 />} */}
+   {/* <MemoryGame3 /> */}
+   <MemoryGame4 />
+   {/* <SnakeGame /> */}
+   {/* {<Calc />} */}
+   {/* {<Calc2 />} */}
+   {/* <RockpaperScissors /> */}
+   {/* <SnakeGame2 /> */}
+   {/* <Calc3 /> */}
+   {/* {<FindthelargestNum />} */}
+   {/* <FetchUsers /> */}
+   {/* <GuessingGame /> */}
+   {/* <Capitilize2 /> */}
+   {/* <Debounce2 /> */}
+  </div>
+ )
 }
 
 export default App2

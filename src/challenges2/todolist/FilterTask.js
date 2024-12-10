@@ -1,6 +1,7 @@
 import React from "react"
 
 const FilterTask = ({ tasks, setFilterTasks }) => {
+  ///////////
  const handleFilter = (filter) => {
   if (filter === "all") {
    setFilterTasks(tasks)
