@@ -360,3 +360,71 @@
 
 // console.log(sortByAge(result));
 
+// function fibonacci(n) {
+//  let sequence = [0, 1]
+//  for (let i = 2; i < n; i++) {
+//   sequence.push(sequence[i - 1] + sequence[i - 2])
+//  }
+//  return console.log(sequence)
+// }
+// fibonacci(6)
+// function fibonacciRec(n) {
+//  if (n <= 1) return n
+//  return fibonacciRec(n - 1) + fibonacciRec(n - 2)
+// }
+// console.log(fibonacciRec(1))
+
+// function areanagrams(str1, str2) {
+//  const sotred1 = str1.split("").sort().join("")
+//  const sotred2 = str2.split("").sort().join("")
+//  return sotred1 === sotred2
+// }
+
+// console.log(areanagrams("listen", "silent")) // true
+// function areAnagrams(str1, str2) {
+//  const normalize = (str) => str.replace(/\s+/g, " ").toLowerCase()
+//  str1 = normalize(str1)
+//  str2 = normalize(str2)
+
+//  if (str1.length !== str2.length) return false
+//  const charCount = {}
+
+//  for (let char of str1) {
+//   charCount[char] = (charCount[char] || 0) + 1
+//   console.log(charCount)
+//  }
+//  for (const char of str2) {
+//   if (!charCount[char]) return false
+//   charCount[char]--
+//  }
+//  return true
+// }
+// console.log(areAnagrams("liisten", "siilent"))
+function nonrepeat(str) {
+ const charCount = {}
+ const result = []
+ for (const char of str) {
+  charCount[char] = (charCount[char] || 0) + 1
+ }
+ for (const char of str) {
+  if (charCount[char] === 1) {
+   result.push(char)
+  }
+ }
+ return result
+}
+// console.log(nonrepeat("lliisten"))
+
+function countvowels(str) {
+ const vowels = "aeiouAEIOU"
+ let count = 0
+ let result = []
+ for (let i = 0; i < str.length; i++) {
+  if (vowels.includes(str[i])) {
+   count++
+   result.push(str[i])
+  }
+ }
+ return result
+}
+console.log(countvowels("lliisten"))
