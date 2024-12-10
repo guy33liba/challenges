@@ -33,7 +33,7 @@ const MemoryGame3 = () => {
       if (firstCard.value === secondCard.value) {
         setCards((prevCards) => {
           prevCards.map((card) => {
-            card.value === firstCard.value ? { ...card, isMatched: true } : card
+            return card.value === firstCard.value ? { ...card, isMatched: true } : card
           })
         })
       }
