@@ -21,6 +21,7 @@ import SnakeGame from "./snake/SnakeGame"
 import Calc3 from "./calculator/Calc3"
 import RockpaperScissors from "./rock-paper-scissors/RockpaperScissors"
 import SnakeGame2 from "./snake/SnakeGame2"
+import MemoryGame3 from "./memory-game/MemoryGame3"
 const App2 = () => {
   return (
     <div>
@@ -39,7 +40,8 @@ const App2 = () => {
       {/* {<Calc />} */}
       {/* {<Calc2 />} */}
       {/* <RockpaperScissors /> */}
-      <SnakeGame2 />
+      {/* <SnakeGame2 /> */}
+      <MemoryGame3 />
       {/* <Calc3 /> */}
       {/* {<FindthelargestNum />} */}
       {/* <FetchUsers /> */}
