@@ -44,16 +44,24 @@ const MemoryGame3 = () => {
             card.isFlipped && !card.isMatched ? { ...card, isFlipped: false } : card,
           )
         })
-      })
+      }, 1000)
     }
-  })
+    setFlippedCards([])
+  }, [flippedCards])
   return (
     <div>
       <h1>Memory Card Game</h1>
       <div className="cardGrid">
         {cards.map((card, index) => {
           return (
-            <div key={card.id} className="card" onClick={() => flipCard(card.id)}>
+            <div
+              key={card.id}
+              className="card"
+              style={{
+                backgroundColor: card.isFlipped || card.isMatched ? "white" : "lightblue",
+                cursor: card.isFlipped || card.isMatched ? "default" : "pointer",
+              }}
+              onClick={() => !card.isFlipped && !card.isMatched && flipCard(card.id)}>
               {card.isFlipped ? card.value : "?"}
             </div>
           )
