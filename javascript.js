@@ -401,30 +401,39 @@
 // }
 // console.log(areAnagrams("liisten", "siilent"))
 function nonrepeat(str) {
- const charCount = {}
- const result = []
- for (const char of str) {
-  charCount[char] = (charCount[char] || 0) + 1
- }
- for (const char of str) {
-  if (charCount[char] === 1) {
-   result.push(char)
+  const charCount = {}
+  const result = []
+  for (const char of str) {
+    charCount[char] = (charCount[char] || 0) + 1
   }
- }
- return result
+  for (const char of str) {
+    if (charCount[char] === 1) {
+      result.push(char)
+    }
+  }
+  return result
 }
 // console.log(nonrepeat("lliisten"))
 
 function countvowels(str) {
- const vowels = "aeiouAEIOU"
- let count = 0
- let result = []
- for (let i = 0; i < str.length; i++) {
-  if (vowels.includes(str[i])) {
-   count++
-   result.push(str[i])
+  const vowels = "aeiouAEIOU"
+  let count = 0
+  let result = []
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      count++
+      result.push(str[i])
+    }
   }
- }
- return result
+  return result
 }
 console.log(countvowels("lliisten"))
+
+function fibonacci(num) {
+  let rra = [1, 2]
+  for (let i = 2; i < num; i++) {
+    rra.push(rra[i - 1] + rra[i - 2])
+  }
+  return console.log(rra)
+}
+fibonacci(5)
