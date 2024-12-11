@@ -10,7 +10,7 @@ const MemoryGame3 = () => {
     return shuffled
   }
   const initializeCards = () => {
-    const cardValues = ["A", "B", "C", "D"]
+    const cardValues = ["🍎", "🍌", "🍓", "🍍"]
     const doubledCards = cardValues.flatMap((value, index) => [
       { id: index * 2, value, isFlipped: false, isMatched: false },
       { id: index * 2 + 1, value, isFlipped: false, isMatched: false },
@@ -50,7 +50,7 @@ const MemoryGame3 = () => {
               card.isFlipped && !card.isMatched ? { ...card, isFlipped: false } : card,
             ),
           )
-        }, 1000)
+        }, 100)
       }
       setFlippedCards([])
     }
