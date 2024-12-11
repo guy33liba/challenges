@@ -82,7 +82,7 @@ const MemoryGame4 = () => {
       key={card.id}
       onClick={() => !card.isFlipped && !card.isMatched && flipCard(card.id)}
       style={{
-       backgroundColor: card.isFlipped || card.isMatched ? "white" : "lightblue",
+       backgroundColor: card.isFlipped || card.isMatched ? "#226782" : "lightblue",
        cursor: card.isFlipped || card.isMatched ? "default" : "pointer",
       }}
      >
