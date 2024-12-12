@@ -22,7 +22,6 @@ const MemoryGame4 = () => {
  const [attempts, setAttempts] = useState(0);
 
  const flipCard = (id) => {
-  if (flippedCards.length === 2) return;
   setCards((prevCards) =>
    prevCards.map((card) =>
     card.id === id ? { ...card, isFlipped: !card.isFlipped } : card
