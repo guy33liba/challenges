@@ -59,8 +59,40 @@ const MemoryGame5 = () => {
     }
     setflippedCards([])
   }, [flippedCards])
-
-  return <div>MemoryGame5</div>
+  const matchedCount = cards.reduce(
+    (count, card) => (card.isMatched ? count + 1 : count),
+    0,
+  )
+  return (
+    <div>
+      <div>
+        <h1>Memory Card</h1>
+        <h1>{attempts}</h1>
+        <h1>{matchedCount}</h1>
+      </div>
+      <button
+        onClick={() => {
+          setCards(initializeCards())
+          setflippedCards([])
+          setAttempts(0)
+        }}>
+        Reset
+      </button>
+      <div className="cardGrid">
+        {cards.map((card) => (
+          <div
+            className="card"
+            style={{
+              backgroundColor: card.isFlipped || card.isMatched ? "white" : "lightblue",
+              cursor: card.isFlipped || card.isMatched ? "default" : "pointer",
+            }}
+            onClick={() => !card.isFlipped && !card.isMatched && flipCard(card.id)}>
+            {card.isFlipped || card.isMatched ? card.value : "?"}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default MemoryGame5
