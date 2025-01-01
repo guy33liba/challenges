@@ -114,15 +114,13 @@ import React, { useEffect, useState } from "react";
 
 const App = () => {
  const [state, setState] = useState([]);
- const findthemaxnumber = (arr) => {
+
+ function findmax(arr) {
   return Math.max(...arr);
- };
- const handleMax = () => {
-  const numbers = [1, 3, 5, 7, 9];
-  setState(() => findthemaxnumber(numbers));
- };
+ }
  useEffect(() => {
-  handleMax();
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  setState(() => findmax(arr));
  }, []);
  return (
   <div>
