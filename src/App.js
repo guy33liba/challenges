@@ -113,18 +113,51 @@
 import React, { useEffect, useState } from "react";
 
 const App = () => {
- const [state, setState] = useState([]);
+ const numIslands = (grid) => {
+  const rows = grid.length;
+  const cols = grid[0].length;
+  let count = 0;
 
- function findmax(arr) {
-  return Math.max(...arr);
- }
- useEffect(() => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  setState(() => findmax(arr));
- }, []);
+  for (let i = 0; i < rows; i++) {
+   for (let j = 0; j < cols; j++) {
+    if (grid[i][j] === 1) {
+     count++;
+     dfs(i, j, grid); // Mark all connected cells of this island
+    }
+   }
+  }
+
+  return count;
+ };
+ const dfs = (i, j, grid) => {
+  const rows = grid.length;
+  const cols = grid[0].length;
+
+  // Check if out of bounds or water (0)
+  if (i < 0 || j < 0 || i >= rows || j >= cols || grid[i][j] === 0) {
+   return;
+  }
+
+  // Mark the current cell as visited by setting it to 0
+  grid[i][j] = 0;
+
+  // Explore all four directions
+  dfs(i - 1, j, grid); // Up
+  dfs(i + 1, j, grid); // Down
+  dfs(i, j - 1, grid); // Left
+  dfs(i, j + 1, grid); // Right
+ };
+ const grid = [
+  [1, 1, 0, 0, 0],
+  [1, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 1],
+ ];
+
+ console.log(numIslands(grid));
  return (
   <div>
-   <h1>the max number = {state} </h1>
+   <h1>the max number </h1>
   </div>
  );
 };
