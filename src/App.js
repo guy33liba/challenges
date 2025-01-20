@@ -30,27 +30,19 @@ const App = () => {
   const [cardGame, setCardGame] = useState([...cards, ...cards])
   const [flippedCards, setFlippedCards] = useState([])
   const [score, setscore] = useState(0)
-  const [mathched, setMathched] = useState(false)
-
+  const [mathched, setMathched] = useState([])
   useEffect(() => {
     if (flippedCards.length < 2) {
-      const [firstcard, secondcard] = flippedCards
-      if (firstcard === secondcard) {
-        setMathched(true)
+      const [firstCard, secondcard] = flippedCards
+      if (firstCard.symbol === secondcard.symbol) {
+        setMathched((prevmatched) => [...prevmatched, firstCard.id, secondcard.id])
         setscore((prev) => prev + 1)
       }
-    } else {
       setTimeout(() => {
         setFlippedCards([])
       }, 1000)
-      setMathched(false)
     }
-  }, [flippedCards])
-  function handleFlipppedCArd(card) {
-    if (flippedCards.length < 2) {
-      setFlippedCards((prev) => [...prev, card])
-    }
-  }
+  })
   return (
     <div>
       <h1>Memory Game</h1>
@@ -59,7 +51,7 @@ const App = () => {
           <div>
             {index}
             <button
-              onClick={() => handleFlipppedCArd(card.id)}
+              onClick={() => handleFlipppedCArd(card)}
               style={{
                 width: "50px",
                 fontSize: "30px",
