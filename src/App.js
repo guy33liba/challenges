@@ -12,7 +12,7 @@ const App = () => {
   ]
   const shuffleCards = [...cardsArray].sort(() => Math.random() - 0.5)
 
-  const [cardlist, setCardlist] = useState(randomCards)
+  const [cardlist, setCardlist] = useState(shuffleCards)
   const flipcard = (id) => {
     cardlist.map((card) => (card.id === id ? { ...card, flipped: !card.flipped } : card))
   }
