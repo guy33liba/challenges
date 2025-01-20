@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 const App = () => {
   const cards = [
@@ -32,13 +32,23 @@ const App = () => {
   const [score, setscore] = useState(0)
   const [mathched, setMathched] = useState(false)
 
-  const addFlippedCards = (card) => {
-    setFlippedCards((prev) => [...prev, card])
-    if (flippedCards.card[0] === flippedCards.card[1]) {
-      setCardGame((card) => ({ ...card, mathched: true }))
-      setscore((prev) => prev + 1)
+  useEffect(() => {
+    if (flippedCards.length < 2) {
+      const [firstcard, secondcard] = flippedCards
+      if (firstcard === secondcard) {
+        setMathched(true)
+        setscore((prev) => prev + 1)
+      }
     } else {
-      setCardGame((card) => ({ ...card, mathched: false }))
+      setTimeout(() => {
+        setFlippedCards([])
+      }, 1000)
+      setMathched(false)
+    }
+  }, [flippedCards])
+  function handleFlipppedCArd(card) {
+    if (flippedCards.length < 2) {
+      setFlippedCards((prev) => [...prev, card])
     }
   }
   return (
@@ -48,8 +58,15 @@ const App = () => {
         {cardGame.map((card, index) => (
           <div>
             {index}
-            <button onClick={() => addFlippedCards(card.id)} style={{ width: "50px", fontSize: "30px", textAlign: "center" }}>
-              {card.symbol}
+            <button
+              onClick={() => handleFlipppedCArd(card.id)}
+              style={{
+                width: "50px",
+                fontSize: "30px",
+                textAlign: "center",
+                backgroundColor: flippedCards.includes(card) || card.symbol ? "#ddd" : "#fff",
+              }}>
+              {flippedCards.includes(card) || card.mathched ? card.symbol : "?"}
             </button>
           </div>
         ))}
