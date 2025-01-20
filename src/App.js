@@ -36,6 +36,7 @@ const App = () => {
     setFlippedCards((prev) => [...prev, card])
     if (flippedCards.card[0] === flippedCards.card[1]) {
       setCardGame((card) => ({ ...card, mathched: true }))
+      setscore((prev) => prev + 1)
     } else {
       setCardGame((card) => ({ ...card, mathched: false }))
     }
