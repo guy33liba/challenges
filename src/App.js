@@ -12,6 +12,9 @@ const App = () => {
     return grid
   }
   const [grid, setGrid] = useState(createGrid)
+  function snakeCreate(){
+    
+  }
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>snake game</h2>
