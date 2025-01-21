@@ -1,68 +1,83 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import SingleCard from "./SingleCard";
+import React, { useState } from "react"
+import { useEffect } from "react"
 
-const cardimages = [
- { src: "helmet.png", matched: false },
- { src: "potion.png", matched: false },
- { src: "scroll.png", matched: false },
- { src: "shield.png", matched: false },
- { src: "sword.png", matched: false },
- { src: "ring.png", matched: false },
-];
 const App = () => {
- const [cards, setCards] = useState([]);
- const [turns, setTurns] = useState(0);
-
- const [choiceone, setChoiceone] = useState(null);
- const [choicetwo, setChoicetwo] = useState(null);
- const [gameover, setGameover] = useState(false);
- const shuffleCards = () => {
-  const shuffledCards = [...cardimages, ...cardimages].sort(() => Math.random(cardimages) - 0.5).map((card) => ({ ...card, id: Math.random() }));
-  setCards(shuffledCards);
-  setTurns(0);
- };
- function handleChoice(card) {
-  choiceone ? setChoicetwo(card) : setChoiceone(card);
- }
-
- function resetTurn() {
-  setChoiceone(null);
-  setChoicetwo(null);
-  setTurns((prevturns) => prevturns + 1);
- }
- useEffect(() => {
-  if (!gameover) {
-   if (choiceone && choicetwo) {
-    if (choiceone.src === choicetwo.src) {
-     setCards((prev) => prev.map((card) => (card.src === choiceone.src ? { ...card, matched: true } : card)));
-     console.log("matched");
-     resetTurn();
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      answers: ["Paris", "Rome", "Berlin", "Madrid"],
+      correctAnswer: "Paris",
+    },
+    {
+      question: "Which planet is known as the Red Planet?",
+      answers: ["Earth", "Mars", "Jupiter", "Venus"],
+      correctAnswer: "Mars",
+    },
+    {
+      question: "Who wrote 'Romeo and Juliet'?",
+      answers: ["William Shakespeare", "Mark Twain", "Charles Dickens", "Jane Austen"],
+      correctAnswer: "William Shakespeare",
+    },
+  ]
+  const [questionIndex, setQuestionIndex] = useState(0)
+  const [correct, setCorrect] = useState(false)
+  const [score, setscore] = useState(0)
+  const [message, setMessage] = useState("hello")
+  if (questionIndex > 2) {
+    setQuestionIndex(0)
+  }
+  function setnextquestion() {
+    if (questionIndex < 2) {
+      setQuestionIndex((prev) => prev + 1)
+      setCorrect(false)
     } else {
-     console.log("not matched");
-     resetTurn();
+      setQuestionIndex(0)
+      setCorrect(false)
     }
-   }
   }
- }, [choiceone, choicetwo]);
- useEffect(() => {
-  if (cards.length > 0 && cards.every((card) => card.matched)) {
-   setGameover(true);
-  }
- }, [gameover]);
- return (
-  <div className="App">
-   <h1>Magic Match</h1>
-   {gameover }
-   <h2>{turns}</h2>
-   <button onClick={shuffleCards}>New Game</button>
-   <div className="cardGrid">
-    {cards.map((card) => (
-     <SingleCard card={card} handleChoice={handleChoice} flipped={card.id === choiceone?.id || card.id === choicetwo?.id || card.matched} />
-    ))}
-   </div>
-  </div>
- );
-};
+  const currentQuestion = questions[questionIndex]
 
-export default App;
+  function handleAnswer(answer) {
+    const currentQuestion = questions[questionIndex]
+    if (answer === currentQuestion.correctAnswer) {
+      setMessage(`Correct Answer: ${currentQuestion.correctAnswer}`)
+      setCorrect(true)
+      setscore((prev) => prev + 1)
+    } else {
+      console.log(`Incorrect! The correct answer is: ${currentQuestion.correctAnswer}`)
+      setCorrect(false)
+    }
+  }
+
+  return (
+    <div style={{ marginLeft: "320px" }}>
+      <h2>Quiz Game</h2>
+      <div>{questions[questionIndex].question}</div>
+      <ul>
+        {questions[questionIndex].answers.map((item, index) => (
+          <ul style={{ width: "200px" }} key={index}>
+            <li>
+              <button
+                onClick={() => handleAnswer(item)}
+                style={{
+                  backgroundColor: correct && item === currentQuestion.correctAnswer ? "green" : "",
+                  marginTop: "10px",
+                  height: "30px",
+                  width: "200px",
+                }}>
+                {item}
+              </button>
+            </li>
+          </ul>
+        ))}
+      </ul>
+      <button style={{ marginLeft: "120px" }} onClick={() => setnextquestion()}>
+        Next Question
+      </button>
+      <h2>{score}</h2>
+      <h2>{message}</h2>
+    </div>
+  )
+}
+
+export default App
