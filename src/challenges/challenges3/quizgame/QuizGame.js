@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const QuizGame = () => {
+const App = () => {
   const questions = [
     {
       question: "What is the capital of France?",
@@ -18,66 +18,79 @@ const QuizGame = () => {
       correctAnswer: "William Shakespeare",
     },
   ]
-  const [questionIndex, setQuestionIndex] = useState(0)
-  const [correct, setCorrect] = useState(false)
-  const [score, setscore] = useState(0)
-  const [message, setMessage] = useState("hello")
-  if (questionIndex > 2) {
-    setQuestionIndex(0)
-  }
-  function setnextquestion() {
-    if (questionIndex < 2) {
-      setQuestionIndex((prev) => prev + 1)
-      setCorrect(false)
-    } else {
-      setMessage(`Your Score is ${score}`)
-      setQuestionIndex(0)
-      setCorrect(false)
-    }
-  }
-  const currentQuestion = questions[questionIndex]
 
-  function handleAnswer(answer) {
-    const currentQuestion = questions[questionIndex]
-    if (answer === currentQuestion.correctAnswer) {
-      setMessage(`Correct Answer: ${currentQuestion.correctAnswer}`)
-      setCorrect(true)
-      setscore((prev) => prev + 1)
+  const [questionindex, setQuestionIndex] = useState(0)
+  const [message, setMessage] = useState("")
+  const [score, setScore] = useState(0)
+  const [correct, setCorrect] = useState(false)
+  const [isGameOver, setIsGameOver] = useState(false)
+
+  const handlenext = () => {
+    if (questionindex < questions.length - 1) {
+      setQuestionIndex((prev) => prev + 1)
+      setMessage("")
+      setCorrect(false)
     } else {
-      console.log(`Incorrect! The correct answer is: ${currentQuestion.correctAnswer}`)
+      setIsGameOver(true)
+    }
+  }
+
+  const correctAnswer = (answer) => {
+    const currentAnswer = questions[questionindex]
+    if (currentAnswer.correctAnswer === answer) {
+      setMessage(`Correct! ${answer}`)
+      setScore((prev) => prev + 1)
+      setCorrect(true)
+      setTimeout(() => {
+        handlenext()
+      }, 1000)
+    } else {
+      setMessage("Incorrect")
       setCorrect(false)
     }
+  }
+
+  const newGame = () => {
+    setScore(0)
+    setQuestionIndex(0)
+    setMessage("")
+    setCorrect(false)
+    setIsGameOver(false)
   }
 
   return (
-    <div style={{ marginLeft: "320px" }}>
-      <h2>Quiz Game</h2>
-      <div>{questions[questionIndex].question}</div>
-      <ul>
-        {questions[questionIndex].answers.map((item, index) => (
-          <ul style={{ width: "200px" }} key={index}>
-            <li>
-              <button
-                onClick={() => handleAnswer(item)}
+    <div style={{ margin: "5rem" }}>
+      <h1>Quiz App</h1>
+      {!isGameOver ? (
+        <>
+          <h3>{questions[questionindex].question}</h3>
+          <ul>
+            {questions[questionindex].answers.map((answer) => (
+              <li
+                key={answer}
+                onClick={() => correctAnswer(answer)}
                 style={{
-                  backgroundColor: correct && item === currentQuestion.correctAnswer ? "green" : "",
-                  marginTop: "10px",
-                  height: "30px",
-                  width: "200px",
+                  cursor: "pointer",
+                  color: correct && answer === questions[questionindex].correctAnswer ? "green" : "",
                 }}>
-                {item}
-              </button>
-            </li>
+                {answer}
+              </li>
+            ))}
           </ul>
-        ))}
-      </ul>
-      <button style={{ marginLeft: "120px" }} onClick={() => setnextquestion()}>
-        Next Question
-      </button>
-      <h2>{score}</h2>
-      <h2>{message}</h2>
+          <button onClick={handlenext} disabled={correct}>
+            Next
+          </button>
+          <h2>Score: {score}</h2>
+          <h1>Message: {message}</h1>
+        </>
+      ) : (
+        <>
+          <h2>Your final score is: {score}</h2>
+          <button onClick={newGame}>Start New Game</button>
+        </>
+      )}
     </div>
   )
 }
 
-export default QuizGame
+export default App
