@@ -1,36 +1,11 @@
-import React, { createElement, useEffect, useState } from "react"
+import React from "react"
+import Pyramid from "./challenges/challenges2/small-challenges/AstrixGame"
+import FindthelargestNum from "./challenges/challenges2/small-challenges/FindthelargestNum"
 
 const App = () => {
-  const createGrid = () => {
-    let grid = []
-    for (let i = 0; i < 20; i++) {
-      for (let j = 0; j < 20; j++) {
-        const element = createElement("div")
-        grid.push(element)
-      }
-    }
-    return grid
-  }
-  const [grid, setGrid] = useState(createGrid)
-  function snakeCreate(){
-    
-  }
   return (
     <div>
-      <h2 style={{ textAlign: "center" }}>snake game</h2>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(20,20px",
-          gridTemplateRows: "repeat(20,20px)",
-          gap: "1px",
-          marginLeft: "35%",
-          marginTop: "20%",
-        }}>
-        {grid.map((item) => {
-          return <div style={{ width: "20px", height: "20px", border: "1px solid black", backgroundColor: "white" }}>{item.element}</div>
-        })}
-      </div>
+      <FindthelargestNum />
     </div>
   )
 }
