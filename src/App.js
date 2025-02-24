@@ -1,21 +1,21 @@
-<<<<<<< HEAD
-import React from "react"
-import Pyramid from "./challenges/challenges2/small-challenges/AstrixGame"
-import FindthelargestNum from "./challenges/challenges2/small-challenges/FindthelargestNum"
-
+import React, { useEffect, useState } from "react"
+import "./App.css"
+const boardsize = 20
+const snakerandomPosition = Math.floor(Math.random()) * boardsize
+const getrandomposition = () => ({
+  x: Math.floor(Math.random() * boardsize),
+  y: Math.floor(Math.random() * boardsize),
+})
 const App = () => {
-  return (
-    <div>
-      <FindthelargestNum />
-    </div>
-  )
+  const [snake, setSnake] = useState({ x: snakerandomPosition, y: snakerandomPosition })
+  const [food, setFood] = useState(getrandomposition())
+  const [direction, setDirection] = useState("Right")
+  const [gameOver, setGameOver] = useState(false)
+  const [score, setScore] = useState(0)
+  useEffect(() => {
+    if (gameOver) return
+  }, [])
+  return <div></div>
 }
-=======
-import React from "react";
 
-const App = () => {
- return <div></div>;
-};
->>>>>>> 6e7bbe1f493b08e24b3ee9d280653e62b13c70d5
-
-export default App;
+export default App
