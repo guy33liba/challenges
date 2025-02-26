@@ -1,81 +1,46 @@
-.buttons button {
-  width: 100px;
-  height: 100px;
-  font-size: 40px;
-}
-.buttons {
-  text-align: center;
-}
-/* body {
-  overflow: hidden;background-color: rgb(121, 118, 115);
-}
-.app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.task-tracker {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
+/* src/App.css */
+.slot-machine {
+ text-align: center;
+ padding: 50px;
+ background-color: #282c34;
+ color: white;
+ font-family: "Arial", sans-serif;
 }
 
-.task-form input,
-.task-form select,
-.task-form button {
-  margin: 5px;
-  padding: 8px;
+.reels {
+ display: flex;
+ justify-content: center;
+ margin-bottom: 20px;
 }
 
-.task-list {
-  margin-top: 20px;
+.reel {
+ font-size: 3rem;
+ margin: 0 10px;
+ padding: 20px;
+ background-color: #333;
+ border-radius: 5px;
 }
 
-.task-category {
-  margin-bottom: 20px;
+.symbol {
+ transition: transform 0.3s ease-in-out;
 }
 
-.task-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 0;
+.spin-button {
+ padding: 15px 30px;
+ font-size: 1.2rem;
+ cursor: pointer;
+ background-color: #f39c12;
+ border: none;
+ border-radius: 5px;
+ color: white;
+ transition: background-color 0.3s;
 }
 
-.task-item.completed span {
-  text-decoration: line-through;
-  color: gray;
+.spin-button:hover {
+ background-color: #e67e22;
 }
 
-button {
-  background: #ff5f5f;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+.score {
+ margin-top: 20px;
+ font-size: 1.5rem;
 }
-
-button:hover {
-  background: #ff0000;
-}
-.categoryList {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  right: 140px;
-  width: 80rem;
-  height: 600px;
-  margin-top: 10px;
-  margin-left: 150px;
-  font-size: 30px;
-}
-.categoryList div {
-  width: 400px;
-  text-align: center;
-}
-.deleteEditBlock {
-  border: 1px solid black;
-} */
