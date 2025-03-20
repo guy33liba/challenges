@@ -1,46 +1,7 @@
-/* src/App.css */
-.slot-machine {
- text-align: center;
- padding: 50px;
- background-color: #282c34;
- color: white;
- font-family: "Arial", sans-serif;
-}
-
-.reels {
- display: flex;
- justify-content: center;
- margin-bottom: 20px;
-}
-
-.reel {
- font-size: 3rem;
- margin: 0 10px;
- padding: 20px;
- background-color: #333;
- border-radius: 5px;
-}
-
-.symbol {
- transition: transform 0.3s ease-in-out;
-}
-
-.spin-button {
- padding: 15px 30px;
- font-size: 1.2rem;
+.buttons button {
+ height: 100px;
+ width: 100px;
+ font-size: 40px;
+ border: 1px solid black;
  cursor: pointer;
- background-color: #f39c12;
- border: none;
- border-radius: 5px;
- color: white;
- transition: background-color 0.3s;
-}
-
-.spin-button:hover {
- background-color: #e67e22;
-}
-
-.score {
- margin-top: 20px;
- font-size: 1.5rem;
 }
